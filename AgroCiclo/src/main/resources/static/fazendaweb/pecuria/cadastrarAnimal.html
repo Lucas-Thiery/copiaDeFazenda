@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🌱 AgroCiclo </title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="principalBody">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2><span>🌱</span> AgroCiclo</h2>
+            <p class="subLogo">GESTÃO RURAL</p>
+        </div>
+        <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem active"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="mainContent">
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / Pecuária / <strong>Cadastrar animal</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda"><option>Fazenda Talismã</option></select>
+                <button class="btnIcon"><i data-lucide="bell"></i></button>
+                <button class="btnIcon"><i data-lucide="user"></i></button>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">PECUÁRIA · GESTÃO INDIVIDUAL</span>
+                    <h1>Cadastrar animal</h1>
+                    <p>Registo individual para controlo genealógico, histórico sanitário e de desempenho.</p>
+                </div>
+                <button class="btnSecundario" onclick="window.location.href='pecuaria.html'">Voltar ao painel</button>
+            </div>
+
+            <section class="cardSecao">
+                <div class="cardSecaoHeader">
+                    <h3>Identificação do animal</h3>
+                </div>
+
+                <form class="formCadastroPropriedade" data-agrociclo-form="/api/animais">
+                    <label>Identificação individual (brinco/código)<input name="identificacao" required maxlength="80" placeholder="Ex.: BR-1045"></label><label>Lote atual<select name="codLoteAtual" data-options-from="/api/lotes" data-option-label="identificacao" required><option value="">Carregando lotes...</option></select></label><label>Espécie<input name="especie" required maxlength="60" placeholder="Ex.: Bovino"></label><label>Raça<input name="raca" maxlength="80" placeholder="Ex.: Nelore"></label><label>Peso inicial (kg)<input name="peso" type="number" min="0.001" step="0.001" required></label><label>Idade (meses)<input name="idadeMeses" type="number" min="0" step="1"></label><label>Data de entrada no lote<input name="dtaEntrada" type="date" required></label><label>Observações<textarea name="observacoes" maxlength="500" rows="3"></textarea></label>
+                    <div class="botoesAcao"><button type="button" class="btnCancelar" onclick="history.back()">Cancelar</button><button type="submit" class="botaoC" style="margin:0;width:auto;padding:10px 24px">Salvar</button></div>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script>lucide.createIcons();</script>
+<script src="../js/agrociclo-api.js"></script><script src="../js/api-forms.js"></script>
+</body>
+</html>

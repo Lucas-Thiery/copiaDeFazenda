@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🌱 AgroCiclo </title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="principalBody">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2><span>🌱</span> AgroCiclo</h2>
+            <p class="subLogo">GESTÃO RURAL</p>
+        </div>
+
+        <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem active"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+
+
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    <div class="mainContent">
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / Estoque e compras / <strong>Movimentação de estoque</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda">
+                    <option>Fazenda Talismã</option>
+                </select>
+                 <button class="btnIcon"><i data-lucide="bell"></i></button>
+                <button class="btnIcon"><i data-lucide="user"></i></button>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">ESTOQUE E COMPRAS</span>
+                    <h1>Movimentação de estoque</h1>
+                    <p>Registo e auditoria de todas as entradas, saídas e transferências de insumos no armazém.</p>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="botaoC" style="margin:0; width: auto; padding: 10px 16px;" onclick="window.location.href='aplicar-estoque.html'">Registar saída</button>
+                    <button class="btnSecundario" onclick="window.location.href='estoqueCompras.html'">Voltar ao painel</button>
+                </div>
+            </div>
+
+            <section class="cardSecao">
+                <div class="cardSecaoHeader">
+                    <h3>Filtrar movimentações</h3>
+                </div>
+
+                <form class="formCadastroPropriedade" onsubmit="event.preventDefault(); alert('Esta tela ainda não está conectada à API. Nenhum dado foi salvo.');">
+                    <div class="linhaForm">
+                        <label>Tipo de Movimento
+                            <select class="selectForm">
+                                <option value="">Todos os tipos</option>
+                                <option value="entrada">Entrada (Compra / Receção)</option>
+                                <option value="saida">Saída (Aplicação / Consumo)</option>
+                                <option value="ajuste">Ajuste de Inventário</option>
+                            </select>
+                        </label>
+                        <label>Item do Estoque
+                            <select class="selectForm">
+                                <option value="">Todos os itens</option>
+                                <option value="npk">NPK 04-14-08</option>
+                                <option value="aftosa">Vacina Aftosa</option>
+                                <option value="vermifugo">Vermífugo Injetável</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="linhaForm">
+                        <label>Data Inicial
+                            <input type="date" class="selectForm">
+                        </label>
+                        <label>Data Final
+                            <input type="date" class="selectForm">
+                        </label>
+                    </div>
+
+                    <div class="botoesAcao">
+                        <button type="submit" class="botaoC" style="margin:0; width: auto; padding: 10px 24px;">Filtrar histórico</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- TABELA DE HISTÓRICO DE MOVIMENTAÇÕES -->
+            <section class="cardSecao" style="margin-top: 24px;">
+                <div class="cardSecaoHeader">
+                    <h3>Registo de Transações</h3>
+                </div>
+
+                <div style="overflow-x: auto; margin-top: 16px;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #e2e8f0; color: #475569;">
+                                <th style="padding: 12px;">Data</th>
+                                <th style="padding: 12px;">Tipo</th>
+                                <th style="padding: 12px;">Item</th>
+                                <th style="padding: 12px;">Quantidade</th>
+                                <th style="padding: 12px;">Origem / Destino</th>
+                                <th style="padding: 12px;">Responsável / Doc</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                <td style="padding: 12px;">28/04/2026</td>
+                                <td style="padding: 12px;"><span style="background: #dcfce7; color: #16a34a; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Entrada</span></td>
+                                <td style="padding: 12px; font-weight: 500;">NPK 04-14-08</td>
+                                <td style="padding: 12px; color: #16a34a; font-weight: bold;">+100 sc</td>
+                                <td style="padding: 12px;">Cooperativa Agrícola Sul</td>
+                                <td style="padding: 12px;">NF 000.458</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                <td style="padding: 12px;">25/04/2026</td>
+                                <td style="padding: 12px;"><span style="background: #fee2e2; color: #dc2626; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Saída</span></td>
+                                <td style="padding: 12px; font-weight: 500;">Vacina Aftosa</td>
+                                <td style="padding: 12px; color: #dc2626; font-weight: bold;">-45 doses</td>
+                                <td style="padding: 12px;">LOTE-BOV-01 (Corte)</td>
+                                <td style="padding: 12px;">Dr. Carlos Vet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

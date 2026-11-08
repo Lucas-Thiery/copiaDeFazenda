@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🌱 AgroCiclo </title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="principalBody">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2><span>🌱</span> AgroCiclo</h2>
+            <p class="subLogo">GESTÃO RURAL</p>
+        </div>
+        <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem active"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="mainContent">
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / Sanidade animal / <strong>Calendário sanitário</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda"><option>Fazenda Talismã</option></select>
+                <button class="btnIcon"><i data-lucide="bell"></i></button>
+                <button class="btnIcon"><i data-lucide="user"></i></button>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">SANIDADE ANIMAL · CALENDÁRIO</span>
+                    <h1>Calendário Sanitário</h1>
+                    <p>Visualização cronológica das ações sanitárias previstas e campanhas obrigatórias do rebanho.</p>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="botaoC" style="margin:0; width: auto; padding: 10px 16px;" onclick="window.location.href='agendarAcao.html'">Agendar Ação</button>
+                    <button class="btnSecundario" onclick="window.location.href='sanidadeAnimal.html'">Voltar ao painel</button>
+                </div>
+            </div>
+
+            <section class="cardSecao">
+                <div class="cardSecaoHeader">
+                    <h3>Próximas Ações Sanitárias no Mês</h3>
+                </div>
+
+                <div style="overflow-x: auto; margin-top: 16px;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #e2e8f0; color: #475569;">
+                                <th style="padding: 12px;">Data Prevista</th>
+                                <th style="padding: 12px;">Tipo de Ação</th>
+                                <th style="padding: 12px;">Público-Alvo</th>
+                                <th style="padding: 12px;">Produto</th>
+                                <th style="padding: 12px;">Status</th>
+                                <th style="padding: 12px; text-align: right;">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                <td style="padding: 12px;">15/05/2026</td>
+                                <td style="padding: 12px;">Vacinação Aftosa</td>
+                                <td style="padding: 12px;">LOTE-BOV-01 (Corte)</td>
+                                <td style="padding: 12px;">Vacina Aftosa Doses</td>
+                                <td style="padding: 12px;"><span style="background: #fef3c7; color: #d97706; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Pendente</span></td>
+                                <td style="padding: 12px; text-align: right;">
+                                    <button class="btnSecundario" style="padding: 6px 12px; font-size: 12px;" onclick="window.location.href='registrarAplicacao.html'">Registar</button>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                <td style="padding: 12px;">22/05/2026</td>
+                                <td style="padding: 12px;">Vermifugação</td>
+                                <td style="padding: 12px;">LOTE-BOV-02 (Leite)</td>
+                                <td style="padding: 12px;">Vermífugo Injetável</td>
+                                <td style="padding: 12px;"><span style="background: #fef3c7; color: #d97706; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Pendente</span></td>
+                                <td style="padding: 12px; text-align: right;">
+                                    <button class="btnSecundario" style="padding: 6px 12px; font-size: 12px;" onclick="window.location.href='registrarAplicacao.html'">Registar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

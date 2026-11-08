@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🌱 AgroCiclo </title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="principalBody">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2><span>🌱</span> AgroCiclo</h2>
+            <p class="subLogo">GESTÃO RURAL</p>
+        </div>
+
+        <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem active"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    <div class="mainContent">
+        
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / <strong>Maquinário e frota</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda">
+                    <option>Fazenda Talismã</option>
+                </select>
+                <button class="btnIcon"><i data-lucide="bell"></i></button>
+                <button class="btnIcon"><i data-lucide="user"></i></button>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">MÓDULO DE FROTA E EQUIPAMENTOS</span>
+                    <h1>Maquinário e frota</h1>
+                    <p>Gestão de tratores, veículos, implementos, manutenções, abastecimentos e horímetros.</p>
+                </div>
+                <button class="btnSecundario" onclick="window.location.href='../principal.html'">Voltar ao painel</button>
+            </div>
+
+            <!-- PRINCIPAIS  -->
+            <div class="cardsGrid" style="grid-template-columns: repeat(3, 1fr);">
+                
+                <!-- CADASTRAR MAQUINÁRIO -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Base</span>
+                        <i data-lucide="truck" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Cadastrar Maquinário</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Cadastro de trator, veículo ou implemento.</p>
+                    <a href="cadastrarMaquinario.html" class="botaoC" style="text-align: center; text-decoration: none; font-size: 14px; padding: 10px; margin: 0;">Nova máquina</a>
+                </div>
+
+                <!-- PLANEJAR MANUTENÇÃO -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Planeamento</span>
+                        <i data-lucide="calendar" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Planejar Manutenção</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Planejamento baseado no indicador cadastrado.</p>
+                    <a href="planejaManutencao.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Planejar</a>
+                </div>
+
+                <!--  REGISTRAR MANUTENÇÃO  -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Manutenção</span>
+                        <i data-lucide="tool" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Registrar Manutenção</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Manutenção efetiva vinculada ao custo financeiro correspondente.</p>
+                    <a href="registraManutencao.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Registar manutenção</a>
+                </div>
+
+                <!-- REGISTRAR ABASTECIMENTO -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Abastecimento</span>
+                        <i data-lucide="droplet" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Registrar Abastecimento</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Registra operação e origem financeira do abastecimento.</p>
+                    <a href="abastecimento.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Abastecimento</a>
+                </div>
+
+                <!-- REGISTRAR HORAS DE USO -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Utilização</span>
+                        <i data-lucide="clock" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Registrar Horas de Uso</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">A leitura atual não pode ser inferior à anterior.</p>
+                    <a href="registrarHoras.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Registar horas</a>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

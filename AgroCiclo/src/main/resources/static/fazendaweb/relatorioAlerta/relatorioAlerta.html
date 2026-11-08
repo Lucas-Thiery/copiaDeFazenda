@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🌱 AgroCiclo </title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="principalBody">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2><span>🌱</span> AgroCiclo</h2>
+            <p class="subLogo">GESTÃO RURAL</p>
+        </div>
+
+        <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem active"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+
+
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    
+    <div class="mainContent">
+        
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / <strong>Relatórios e alertas</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda">
+                    <option>Fazenda Talismã</option>
+                </select>
+                <button class="btnIcon"><i data-lucide="bell"></i></button>
+                <button class="btnIcon"><i data-lucide="user"></i></button>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">MÓDULO DE ANÁLISE E AVISOS</span>
+                    <h1>Relatórios e alertas</h1>
+                    <p>Consulta de custos, produtividade, relatórios gerenciais, central de alertas preventivos e configurações.</p>
+                </div>
+                <button class="btnSecundario" onclick="window.location.href='../principal.html'">Voltar ao painel</button>
+            </div>
+
+            <!-- PRINCIPAIS-->
+            <div class="cardsGrid" style="grid-template-columns: repeat(3, 1fr);">
+                
+                <!--RELATÓRIO DE CUSTOS -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Custos</span>
+                        <i data-lucide="file-text" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Relatório de Custos</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Consulta custos registados por destino e período.</p>
+                    <a href="#" class="botaoC" style="text-align: center; text-decoration: none; font-size: 14px; padding: 10px; margin: 0;">Ver custos</a>
+                </div>
+
+                <!-- RELATÓRIO DE PRODUTIVIDADE -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Produtividade</span>
+                        <i data-lucide="trending-up" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Produtividade</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Comparações respeitam unidade, referência e período.</p>
+                    <a href="#" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Ver produtividade</a>
+                </div>
+
+                <!-- RELATÓRIO GERENCIAL  -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Gerencial</span>
+                        <i data-lucide="pie-chart" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Relatório Gerencial</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Indicadores, histórico sanitário, produtivo e aplicações.</p>
+                    <a href="#" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Ver gerencial</a>
+                </div>
+
+                <!-- CENTRAL DE ALERTAS PREVENTIVOS  -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Alertas</span>
+                        <i data-lucide="alert-triangle" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Central de Alertas</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Avisos de sanidade, manutenção, validade e stock mínimo.</p>
+                    <a href="#" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Consultar alertas</a>
+                </div>
+
+                <!-- CONFIGURAR ALERTAS -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Configuração</span>
+                        <i data-lucide="settings" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Configurar Alertas</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Antecedências configuráveis conforme categoria e medidor.</p>
+                    <a href="#" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Configurar</a>
+                </div>
+
+                <!-- ENVIAR RESUMO DE ALERTAS POR E-MAIL -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Envio</span>
+                        <i data-lucide="mail" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Resumo por E-mail</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Envio a serviço externo após consulta de alertas e confirmação.</p>
+                    <a href="#" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Enviar resumo</a>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

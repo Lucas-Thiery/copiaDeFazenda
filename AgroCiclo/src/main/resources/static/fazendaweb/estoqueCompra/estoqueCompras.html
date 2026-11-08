@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🌱 AgroCiclo </title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="principalBody">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2><span>🌱</span> AgroCiclo</h2>
+            <p class="subLogo">GESTÃO RURAL</p>
+        </div>
+
+        <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem active"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+
+
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    <div class="mainContent">
+        
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / <strong>Estoque e compras</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda">
+                    <option>Fazenda Talismã</option>
+                </select>
+                <button class="btnIcon"><i data-lucide="bell"></i></button>
+                <button class="btnIcon"><i data-lucide="user"></i></button>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">MÓDULO DE COMPRA E ESTOQUE</span>
+                    <h1>Estoque e compras</h1>
+                    <p>Controle dos itens, fornecedores, entradas de compras, consumo e consulta do estoque.</p>
+                </div>
+                <button class="btnSecundario" onclick="window.location.href='../principal.html'">Voltar ao painel</button>
+            </div>
+
+            <!-- PRINCIPAIS -->
+            <div class="cardsGrid" style="grid-template-columns: repeat(3, 1fr);">
+                
+                <!-- CADASTRAR ITEM NO ESTOQUE -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Estoque</span>
+                        <i data-lucide="tag" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Cadastrar Item</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Cadastro de itens no estoque da fazenda.</p>
+                    <a href="cadastrarItem.html" class="botaoC" style="text-align: center; text-decoration: none; font-size: 14px; padding: 10px; margin: 0;">Novo item</a>
+                </div>
+
+                <!-- CADASTRAR FORNECEDOR  -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Fornecedores</span>
+                        <i data-lucide="truck" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Cadastrar Fornecedor</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Registra fornecedor para reutilização em compras.</p>
+                    <a href="cadastrarFornecedor.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Novo fornecedor</a>
+                </div>
+
+                <!-- REGISTRAR COMPRA RECEBIDA -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Recepção de carga</span>
+                        <i data-lucide="shopping-cart" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Compra Recebida</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Registrar entrada em estoque.</p>
+                    <a href="compraRecebida.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Registar compra</a>
+                </div>
+
+                <!-- CONSULTAR ESTOQUE-->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Consulta</span>
+                        <i data-lucide="search" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Consultar Estoque</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Consulta itens, saldos, vencimentos e estoque mínimo.</p>
+                    <a href="consultarEstoque.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Consultar estoque</a>
+                </div>
+
+                <!-- REGISTRAR APLICAÇÃO -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Gasto</span>
+                        <i data-lucide="minus-circle" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Aplicação</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Registrar aplicação dando baixa no estoque.</p>
+                    <a href="aplicacao.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Registar consumo</a>
+                </div>
+
+                <!-- REGISTRAR MOVIMENTAÇÃO DE ESTOQUE -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Movimentação</span>
+                        <i data-lucide="repeat" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Movimentação de Estoque</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Movimentação do estoque.</p>
+                    <a href="movimentacaoEstoque.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Movimentar</a>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

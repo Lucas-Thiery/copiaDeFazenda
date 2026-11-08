@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🌱 AgroCiclo </title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="principalBody">
+
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2><span>🌱</span> AgroCiclo</h2>
+            <p class="subLogo">GESTÃO RURAL</p>
+        </div>
+        <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem active"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    <div class="mainContent">
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / Maquinário e frota / <strong>Registar manutenção</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda"><option>Fazenda Talismã</option></select>
+                <button class="btnIcon"><i data-lucide="bell"></i></button>
+                <button class="btnIcon"><i data-lucide="user"></i></button>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">MAQUINÁRIO E FROTA · OFICINA</span>
+                    <h1>Registar manutenção de maquinário</h1>
+                    <p>Controlo de reparações corretivas, preventivas, troca de filtros, óleos e peças de reposição.</p>
+                </div>
+                <button class="btnSecundario" onclick="window.location.href='maquinarioFrota.html'">Voltar ao painel</button>
+            </div>
+
+            <section class="cardSecao">
+                <div class="cardSecaoHeader">
+                    <h3>Dados da Intervenção Mecânica</h3>
+                </div>
+
+                <form class="formCadastroPropriedade" onsubmit="event.preventDefault(); alert('Esta tela ainda não está conectada à API. Nenhum dado foi salvo.');">
+                    <div class="linhaForm">
+                        <label>Equipamento / Veículo
+                            <select class="selectForm" required>
+                                <option value="">Selecione o maquinário...</option>
+                                <option value="maq1">Trator John Deere 7200J (TR-01)</option>
+                                <option value="maq2">Colheitadeira STS (COL-02)</option>
+                                <option value="maq3">Camião Mercedes (CAM-05)</option>
+                            </select>
+                        </label>
+                        <label>Tipo de Manutenção
+                            <select class="selectForm" required>
+                                <option value="">Selecione o tipo...</option>
+                                <option value="preventiva">Preventiva (Revisão / Troca de Óleo)</option>
+                                <option value="corretiva">Corretiva (Reparação de Avaria)</option>
+                                <option value="revisao">Revisão de Horímetro</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="linhaForm">
+                        <label>Data da Manutenção
+                            <input type="date" class="selectForm" required>
+                        </label>
+                        <label>Horímetro / Quilometragem Atual
+                            <input type="text" placeholder="Ex.: 4.580 horas" required>
+                        </label>
+                    </div>
+
+                    <div class="linhaForm">
+                        <label>Custo Total Estimado / Real (R$)
+                            <input type="text" placeholder="Ex.: 1.850,00" required>
+                        </label>
+                        <label>Oficina / Mecânico Responsável
+                            <input type="text" placeholder="Ex.: Oficina Mecânica Central ou Mecânico João">
+                        </label>
+                    </div>
+
+                    <div class="linhaForm">
+                        <label style="flex: 1;">Descrição do Serviço Realizado / Peças Substituídas
+                            <input type="text" placeholder="Ex.: Troca de óleo do motor, filtros de ar e substituição da correia do alternador">
+                        </label>
+                    </div>
+
+                    <div class="botoesAcao">
+                        <button type="button" class="btnCancelar" onclick="window.location.href='../principal.html'">Cancelar</button>
+                        <button type="submit" class="botaoC" style="margin:0; width: auto; padding: 10px 24px;">Salvar manutenção</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

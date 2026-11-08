@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🌱 AgroCiclo </title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="principalBody">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2><span>🌱</span> AgroCiclo</h2>
+            <p class="subLogo">GESTÃO RURAL</p>
+        </div>
+        <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem active"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="mainContent">
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / Pessoas e tarefas / <strong>Registrar execução</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda"><option>Fazenda Talismã</option></select>
+                <button class="btnIcon"><i data-lucide="bell"></i></button>
+                <button class="btnIcon"><i data-lucide="user"></i></button>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">PESSOAS E TAREFAS · CONCLUSÃO</span>
+                    <h1>Registrar execução de tarefa</h1>
+                    <p>Apontamento de horas trabalhadas, encerramento de ordem de serviço e relatório de campo.</p>
+                </div>
+                <button class="btnSecundario" onclick="window.location.href='acompanharTarefa.html'">Voltar ao acompanhamento</button>
+            </div>
+
+            <section class="cardSecao">
+                <div class="cardSecaoHeader">
+                    <h3>Dados da execução e encerramento</h3>
+                </div>
+
+                <form class="formCadastroPropriedade" onsubmit="event.preventDefault(); alert('Esta tela ainda não está conectada à API. Nenhum dado foi salvo.');">
+                    <div class="linhaForm">
+                        <label>Tarefa Associada
+                            <select class="selectForm" required>
+                                <option value="">Selecione a tarefa pendente...</option>
+                                <option value="tar1">Manutenção de cercas (Pasto Sede) - António Santos</option>
+                                <option value="tar2">Aplicação NPK Talhão 01 - João da Silva</option>
+                            </select>
+                        </label>
+                        <label>Data de Conclusão
+                            <input type="date" class="selectForm" required>
+                        </label>
+                    </div>
+
+                    <div class="linhaForm">
+                        <label>Horas Gastas / Tempo de Execução
+                            <input type="text" placeholder="Ex.: 6 horas ou 1.5 dias" required>
+                        </label>
+                        <label>Status Final
+                            <select class="selectForm" required>
+                                <option value="concluida">Concluída com Sucesso</option>
+                                <option value="parcial">Concluída Parcialmente (Continua amanhã)</option>
+                                <option value="impedimento">Interrompida / Impedimento</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="linhaForm">
+                        <label style="flex: 1;">Relatório de Execução / Ocorrências de Campo
+                            <input type="text" placeholder="Descreva o que foi feito, materiais consumidos ou problemas encontrados durante o serviço">
+                        </label>
+                    </div>
+
+                    <div class="botoesAcao">
+                        <button type="button" class="btnCancelar" onclick="window.location.href='acompanhar-tarefa.html'">Cancelar</button>
+                        <button type="submit" class="botaoC" style="margin:0; width: auto; padding: 10px 24px;">Confirmar execução</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

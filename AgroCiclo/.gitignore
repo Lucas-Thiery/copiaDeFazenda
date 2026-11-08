@@ -1,0 +1,29 @@
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+!/.mvn/wrapper/maven-wrapper.jar
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+application-local.properties
+
+# OS and temporary files
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+
+# Logs
+*.log

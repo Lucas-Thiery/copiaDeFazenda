@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS trava_setup (id INTEGER PRIMARY KEY);
+MERGE INTO trava_setup KEY(id) VALUES (1);
