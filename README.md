@@ -1,0 +1,2 @@
+# copiaDeFazenda
+ somente Lucas
