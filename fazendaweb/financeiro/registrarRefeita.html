@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🌱 AgroCiclo </title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="principalBody">
+
+    <aside class="sidebar">
+        <div class="logo">
+                <img src="../imagens/logo-broto.svg" alt="" width="32" height="32">
+                AgroClico
+        </div>
+
+         <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem active"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    <div class="mainContent">
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / Financeiro / <strong>Registar receita</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda"><option>Fazenda Talismã</option></select>
+                <button class="btnIcon"><i data-lucide="bell"></i></button>
+                <button class="btnIcon"><i data-lucide="user"></i></button>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">FINANCEIRO · ENTRADAS</span>
+                    <h1>Registar nova receita</h1>
+                    <p>Registo de entradas por venda de grãos, comercialização de gado, prestação de serviços ou subsídios.</p>
+                </div>
+                <button class="btnSecundario" onclick="window.location.href='financeiro.html'">Voltar ao painel</button>
+            </div>
+
+            <section class="cardSecao">
+                <div class="cardSecaoHeader">
+                    <h3>Detalhes da Receita</h3>
+                </div>
+
+                <form class="formCadastroPropriedade" onsubmit="event.preventDefault(); alert('Receita registada com sucesso!'); window.location.href='../principal.html';">
+                    <div class="linhaForm">
+                        <label>Descrição da Receita
+                            <input type="text" placeholder="Ex.: Venda de Soja - Safra 2025/2026" required>
+                        </label>
+                        <label>Cliente / Comprador
+                            <select class="selectForm" required>
+                                <option value="">Selecione o comprador...</option>
+                                <option value="emp1">Cerealista Grão de Ouro</option>
+                                <option value="emp2">Frigorífico Boi Bom</option>
+                                <option value="emp3">Cooperativa Agrícola Sul</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="linhaForm">
+                        <label>Valor Total (R$)
+                            <input type="text" placeholder="Ex.: 145.000,00" required>
+                        </label>
+                        <label>Data de Recebimento
+                            <input type="date" class="selectForm" required>
+                        </label>
+                    </div>
+
+                    <div class="linhaForm">
+                        <label>Categoria da Receita
+                            <select class="selectForm" required>
+                                <option value="">Selecione a categoria...</option>
+                                <option value="graos">Comercialização de Grãos (Agricultura)</option>
+                                <option value="pecuaria">Venda de Animais / Pecuária</option>
+                                <option value="servicos">Prestação de Serviços Agrícolas</option>
+                                <option value="outros">Outras Receitas</option>
+                            </select>
+                        </label>
+                        <label>Conta Bancária / Destino
+                            <select class="selectForm" required>
+                                <option value="banco1">Banco do Brasil - Conta Corrente</option>
+                                <option value="banco2">Sicredi - Conta Capital</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="linhaForm">
+                        <label style="flex: 1;">Observações / Nota Fiscal
+                            <input type="text" placeholder="Informe o número da Nota Fiscal ou detalhes da venda">
+                        </label>
+                    </div>
+
+                    <div class="botoesAcao">
+                        <button type="button" class="btnCancelar" onclick="window.location.href='../principal.html'">Cancelar</button>
+                        <button type="submit" class="botaoC" style="margin:0; width: auto; padding: 10px 24px;">Salvar receita</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>

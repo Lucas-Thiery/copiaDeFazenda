@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🌱 AgroCiclo </title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="principalBody">
+
+    <aside class="sidebar">
+        <div class="logo">
+                <img src="../imagens/logo-broto.svg" alt="" width="32" height="32">
+                AgroClico
+        </div>
+
+         <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem active"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    <div class="mainContent">
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / Financeiro / <strong>Fluxo de caixa</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda"><option>Fazenda Talismã</option></select>
+                <button class="btnIcon"><i data-lucide="bell"></i></button>
+                <button class="btnIcon"><i data-lucide="user"></i></button>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">FINANCEIRO · RELATÓRIO CONSOLIDADO</span>
+                    <h1>Fluxo de caixa</h1>
+                    <p>Acompanhamento diário das entradas, saídas, saldo do período e projeção financeira da fazenda.</p>
+                </div>
+                <button class="btnSecundario" onclick="window.location.href='financeiro.html'">Voltar ao painel</button>
+            </div>
+
+            <section class="cardSecao">
+                <div class="cardSecaoHeader">
+                    <h3>Filtrar Período</h3>
+                </div>
+
+                <form class="formCadastroPropriedade" onsubmit="event.preventDefault(); alert('Fluxo de caixa atualizado!');">
+                    <div class="linhaForm">
+                        <label>Data Inicial
+                            <input type="date" class="selectForm">
+                        </label>
+                        <label>Data Final
+                            <input type="date" class="selectForm">
+                        </label>
+                    </div>
+
+                    <div class="botoesAcao">
+                        <button type="submit" class="botaoC" style="margin:0; width: auto; padding: 10px 24px;">Atualizar relatório</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- TABELA DE FLUXO DE CAIXA -->
+            <section class="cardSecao" style="margin-top: 24px;">
+                <div class="cardSecaoHeader">
+                    <h3>Extrato Consolidado</h3>
+                </div>
+
+                <div style="overflow-x: auto; margin-top: 16px;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #e2e8f0; color: #475569;">
+                                <th style="padding: 12px;">Data</th>
+                                <th style="padding: 12px;">Histórico / Descrição</th>
+                                <th style="padding: 12px;">Categoria</th>
+                                <th style="padding: 12px; text-align: right;">Entradas (R$)</th>
+                                <th style="padding: 12px; text-align: right;">Saídas (R$)</th>
+                                <th style="padding: 12px; text-align: right;">Saldo (R$)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                <td style="padding: 12px;">28/10/2026</td>
+                                <td style="padding: 12px; font-weight: 500;">Saldo Inicial do Período</td>
+                                <td style="padding: 12px; color: #64748b;">—</td>
+                                <td style="padding: 12px; text-align: right;">—</td>
+                                <td style="padding: 12px; text-align: right;">—</td>
+                                <td style="padding: 12px; text-align: right; font-weight: bold;">85.400,00</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                <td style="padding: 12px;">29/10/2026</td>
+                                <td style="padding: 12px; font-weight: 500;">Venda de Soja (Cerealista)</td>
+                                <td style="padding: 12px;">Comercialização de Grãos</td>
+                                <td style="padding: 12px; text-align: right; color: #16a34a; font-weight: bold;">+ 145.000,00</td>
+                                <td style="padding: 12px; text-align: right;">—</td>
+                                <td style="padding: 12px; text-align: right; font-weight: bold;">230.400,00</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                <td style="padding: 12px;">30/10/2026</td>
+                                <td style="padding: 12px; font-weight: 500;">Compra de Fertilizantes (Cooperativa)</td>
+                                <td style="padding: 12px;">Insumos Agrícolas</td>
+                                <td style="padding: 12px; text-align: right;">—</td>
+                                <td style="padding: 12px; text-align: right; color: #dc2626; font-weight: bold;">- 15.400,00</td>
+                                <td style="padding: 12px; text-align: right; font-weight: bold;">215.000,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

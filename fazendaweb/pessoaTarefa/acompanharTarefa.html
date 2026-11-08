@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🌱 AgroCiclo </title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="principalBody">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+       <div class="logo">
+                <img src="../imagens/logo-broto.svg" alt="" width="32" height="32">
+                AgroClico
+        </div>
+
+        <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem active"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="mainContent">
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / Pessoas e tarefas / <strong>Acompanhar tarefas</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda"><option>Fazenda Talismã</option></select>
+                <button class="btnIcon"><i data-lucide="bell"></i></button>
+                <button class="btnIcon"><i data-lucide="user"></i></button>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">PESSOAS E TAREFAS · MONITORAMENTO</span>
+                    <h1>Acompanhar tarefas de campo</h1>
+                    <p>Controle de execução, alteração de status e histórico de atividades da equipe.</p>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="botaoC" style="margin:0; width: auto; padding: 10px 16px;" onclick="window.location.href='atribuir-tarefa.html'">Nova Tarefa</button>
+                    <button class="btnSecundario" onclick="window.location.href='pessoaTarefa.html'">Voltar ao painel</button>
+                </div>
+            </div>
+
+            <section class="cardSecao">
+                <div class="cardSecaoHeader">
+                    <h3>Filtros de pesquisa</h3>
+                </div>
+
+                <form class="formCadastroPropriedade" onsubmit="event.preventDefault(); alert('Filtro aplicado!');">
+                    <div class="linhaForm">
+                        <label>Status da Tarefa
+                            <select class="selectForm">
+                                <option value="">Todos os status</option>
+                                <option value="pendente">Pendente</option>
+                                <option value="andamento">Em Andamento</option>
+                                <option value="concluida">Concluída</option>
+                            </select>
+                        </label>
+                        <label>Responsável
+                            <select class="selectForm">
+                                <option value="">Todos os colaboradores</option>
+                                <option value="func1">João da Silva</option>
+                                <option value="func2">António Santos</option>
+                                <option value="func3">Marcos Oliveira</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="botoesAcao">
+                        <button type="submit" class="botaoC" style="margin:0; width: auto; padding: 10px 24px;">Filtrar tarefas</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- TABELA DE TAREFAS -->
+            <section class="cardSecao" style="margin-top: 24px;">
+                <div class="cardSecaoHeader">
+                    <h3>Quadro de Atividades</h3>
+                </div>
+
+                <div style="overflow-x: auto; margin-top: 16px;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #e2e8f0; color: #475569;">
+                                <th style="padding: 12px;">Tarefa</th>
+                                <th style="padding: 12px;">Responsável</th>
+                                <th style="padding: 12px;">Prazo</th>
+                                <th style="padding: 12px;">Prioridade</th>
+                                <th style="padding: 12px;">Status</th>
+                                <th style="padding: 12px; text-align: right;">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                <td style="padding: 12px; font-weight: 500;">Manutenção de cercas (Pasto Sede)</td>
+                                <td style="padding: 12px;">António Santos</td>
+                                <td style="padding: 12px;">02/11/2026</td>
+                                <td style="padding: 12px;"><span style="color: #dc2626; font-weight: bold;">Alta</span></td>
+                                <td style="padding: 12px;"><span style="background: #fef3c7; color: #d97706; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Em Andamento</span></td>
+                                <td style="padding: 12px; text-align: right;">
+                                    <button class="btnSecundario" style="padding: 6px 12px; font-size: 12px;" onclick="alert('Status atualizado para Concluída!');">Concluir</button>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                <td style="padding: 12px; font-weight: 500;">Aplicação NPK Talhão 01</td>
+                                <td style="padding: 12px;">João da Silva</td>
+                                <td style="padding: 12px;">05/11/2026</td>
+                                <td style="padding: 12px;"><span>Normal</span></td>
+                                <td style="padding: 12px;"><span style="background: #e2e8f0; color: #475569; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Pendente</span></td>
+                                <td style="padding: 12px; text-align: right;">
+                                    <button class="btnSecundario" style="padding: 6px 12px; font-size: 12px;" onclick="alert('Iniciar tarefa?');">Iniciar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
