@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🌱 AgroCiclo </title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="principalBody">
+
+    <aside class="sidebar">
+        <div class="logo">
+                <img src="../imagens/logo-broto.svg" alt="" width="32" height="32">
+                AgroClico
+        </div>
+
+        <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem active"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    <div class="mainContent">
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / Maquinário e frota / <strong>Registrar horas de uso</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda"><option>Fazenda Talismã</option></select>
+                <button class="btnIcon"><i data-lucide="bell"></i></button>
+                <button class="btnIcon"><i data-lucide="user"></i></button>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">MAQUINÁRIO E FROTA · APONTAMENTO DIÁRIO</span>
+                    <h1>Registar horas de uso do maquinário</h1>
+                    <p>Registo diário de horímetro, jornada de trabalho e alocação de máquinas nas operações agrícolas.</p>
+                </div>
+                <button class="btnSecundario" onclick="window.location.href='maquinarioFrota.html'">Voltar ao painel</button>
+            </div>
+
+            <section class="cardSecao">
+                <div class="cardSecaoHeader">
+                    <h3>Apontamento de Operação</h3>
+                </div>
+
+                <form class="formCadastroPropriedade" onsubmit="event.preventDefault(); alert('Horas de uso registadas com sucesso!'); window.location.href='../principal.html';">
+                    <div class="linhaForm">
+                        <label>Equipamento / Veículo
+                            <select class="selectForm" required>
+                                <option value="">Selecione o maquinário...</option>
+                                <option value="maq1">Trator John Deere 7200J (TR-01)</option>
+                                <option value="maq2">Colheitadeira STS (COL-02)</option>
+                                <option value="maq3">Camião Mercedes (CAM-05)</option>
+                            </select>
+                        </label>
+                        <label>Data do Apontamento
+                            <input type="date" class="selectForm" required>
+                        </label>
+                    </div>
+
+                    <div class="linhaForm">
+                        <label>Horímetro Inicial (Início do Dia)
+                            <input type="text" placeholder="Ex.: 4.580 horas" required>
+                        </label>
+                        <label>Horímetro Final (Fim do Dia)
+                            <input type="text" placeholder="Ex.: 4.592 horas" required>
+                        </label>
+                    </div>
+
+                    <div class="linhaForm">
+                        <label>Operação / Destino da Máquina
+                            <select class="selectForm" required>
+                                <option value="">Selecione a atividade...</option>
+                                <option value="talhao1">Plantio - Talhão 01</option>
+                                <option value="talhao2">Gradagem - Talhão 02</option>
+                                <option value="transporte">Transporte de Grãos</option>
+                            </select>
+                        </label>
+                        <label>Operador Responsável
+                            <input type="text" placeholder="Ex.: João da Silva" required>
+                        </label>
+                    </div>
+
+                    <div class="linhaForm">
+                        <label style="flex: 1;">Observações da Operação
+                            <input type="text" placeholder="Informe ocorrências do turno ou condições do terreno">
+                        </label>
+                    </div>
+
+                    <div class="botoesAcao">
+                        <button type="button" class="btnCancelar" onclick="window.location.href='../principal.html'">Cancelar</button>
+                        <button type="submit" class="botaoC" style="margin:0; width: auto; padding: 10px 24px;">Salvar apontamento</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🌱 AgroCiclo </title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="principalBody">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+        <div class="logo">
+                <img src="../imagens/logo-broto.svg" alt="" width="32" height="32">
+                AgroClico
+        </div>
+
+
+       <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem active"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+
+
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    <div class="mainContent">
+        
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / <strong>Acesso e segurança</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda">
+                    <option>Fazenda Talismã</option>
+                </select>
+                <button class="btnIcon"><i data-lucide="bell"></i></button>
+                <button class="btnIcon"><i data-lucide="user"></i></button>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">MÓDULO DE AUTENTICAÇÃO E PERFIS</span>
+                    <h1>Acesso e segurança</h1>
+                    <p>Gestão de contas de utilizadores, consulta de permissões por perfil, desativação de contas e controlo de sessão.</p>
+                </div>
+                <button class="btnSecundario" onclick="window.location.href='../principal.html'">Voltar ao painel</button>
+            </div>
+
+            <!-- PRINCIPAIS -->
+            <div class="cardsGrid" style="grid-template-columns: repeat(2, 1fr);">
+                
+                <!-- CADASTRAR USUARIO  -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Contas</span>
+                        <i data-lucide="user-plus" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Cadastrar Utilizador</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Contas vinculam-se a funcionário; perfis são Proprietário, Gerente ou Operador.</p>
+                    <a href="#" class="botaoC" style="text-align: center; text-decoration: none; font-size: 14px; padding: 10px; margin: 0;">Novo usuario</a>
+                </div>
+
+                <!-- PERMISSÕES DO USUARIO -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Matriz</span>
+                        <i data-lucide="lock" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Permissões por perfil</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Visão explicativa de permissões fixas por perfil de acesso.</p>
+                    <a href="#" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Ver permissões</a>
+                </div>
+
+                <!-- DESATIVAR UTILIZADOR -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Desativação</span>
+                        <i data-lucide="user-x" style="color: #004729;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Desativar Utilizador</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Preserva auditoria e impede desativar a última conta ativa de Proprietário.</p>
+                    <a href="#" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Desativar conta</a>
+                </div>
+
+                <!-- ENCERRAR SESSÃO -->
+                <div class="cardMetrica cardAcao">
+                    <div class="cardMetricaHeader">
+                        <span>Sessão</span>
+                        <i data-lucide="log-out" style="color: #c0392b;"></i>
+                    </div>
+                    <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Encerrar Sessão</h3>
+                    <p class="cardSub" style="margin-bottom: 16px;">Ao sair, as operações protegidas ficam temporariamente indisponíveis.</p>
+                    <a href="login.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px; color: #c0392b;">Terminar sessão</a>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
