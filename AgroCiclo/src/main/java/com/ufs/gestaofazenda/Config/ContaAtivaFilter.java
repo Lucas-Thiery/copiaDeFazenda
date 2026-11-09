@@ -11,9 +11,17 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.Set;
 
 @RequiredArgsConstructor
 public class ContaAtivaFilter extends OncePerRequestFilter {
+    private static final String CADASTRO_FAZENDA =
+            "/fazendaweb/cadastroGerais/cadastrarPropriedade.html";
+    private static final Set<String> ROTAS_PRIMEIRA_FAZENDA = Set.of(
+            "/", "/index.html", CADASTRO_FAZENDA, "/api/sessao", "/api/csrf",
+            "/api/cadastro/primeira-fazenda", "/api/auth/logout",
+            "/fazendaweb/login.html", "/fazendaweb/style.css");
+
     private final UsuarioRepository usuarioRepository;
 
     @Override
@@ -26,8 +34,7 @@ public class ContaAtivaFilter extends OncePerRequestFilter {
             boolean ativo =
                     usuario.filter(
                                     u ->
-                                            u.isAtivo()
-                                                    && u.getFuncionario().isAtivo()
+                                            u.podeAutenticar()
                                                     && auth.getAuthorities().stream()
                                                             .anyMatch(
                                                                     a ->
@@ -42,6 +49,20 @@ public class ContaAtivaFilter extends OncePerRequestFilter {
                 SecurityContextHolder.clearContext();
                 response.sendError(401, "Conta inativa ou perfil alterado. Faça login novamente.");
                 return;
+            }
+            if (usuario.orElseThrow().primeiraFazendaPendente()) {
+                String path = request.getServletPath();
+                if (path.isEmpty()) path = request.getRequestURI();
+                if (!ROTAS_PRIMEIRA_FAZENDA.contains(path)
+                        && !path.startsWith("/fazendaweb/js/")
+                        && !path.startsWith("/fazendaweb/imagens/")) {
+                    if ("GET".equals(request.getMethod()) && path.endsWith(".html")) {
+                        response.sendRedirect(request.getContextPath() + CADASTRO_FAZENDA);
+                    } else {
+                        response.sendError(403, "Cadastre sua primeira fazenda.");
+                    }
+                    return;
+                }
             }
         }
         chain.doFilter(request, response);

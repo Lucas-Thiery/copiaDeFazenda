@@ -59,11 +59,13 @@ Também há aliases sem `/api` para os recursos das entidades, preservando o est
 
 | Método e rota | Finalidade | Perfil |
 |---|---|---|
+| `POST /api/cadastro/proprietario` | Cria conta por e-mail com nome, senha e aceite dos termos. Exige CSRF | Público |
+| `POST /api/cadastro/primeira-fazenda` | Cria e vincula a primeira fazenda. Exige CSRF e conta pendente | P |
 | `POST /api/setup/inicial` | Primeira conta; cabeçalho X-Setup-Token | Implantação; apenas uma vez |
 | `POST /api/auth/login` | Formulário login/senha; inicia sessão | P/G/O |
 | `POST /api/auth/logout` | Encerra sessão; exige CSRF | P/G/O |
-| `GET /api/csrf` | Token e nome do cabeçalho CSRF | P/G/O |
-| `GET /api/sessao` | Conta, perfil e fazendas | P/G/O |
+| `GET /api/csrf` | Token e nome do cabeçalho CSRF | Público |
+| `GET /api/sessao` | Conta, perfil, fazendas e pendência da primeira fazenda | P/G/O |
 | `POST /api/animais/{id}/transferencias` | Fecha vínculo e cria novo | P/G |
 | `GET /api/pesagens/evolucao` | codAnimal ou codLote, dtaInicio, dtaFim | P/G/O |
 | `POST /api/tarefas/{id}/concluir` | Início/fim reais e custo histórico | P/O; Operador somente a própria |

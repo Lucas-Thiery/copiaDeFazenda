@@ -7,14 +7,15 @@
     <link rel="stylesheet" href="../style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="principalBody">
+<body class="principalBody agroMod">
 
     <!-- BARRA LATERAL -->
     <aside class="sidebar">
-        <div class="sidebarHeader">
-            <h2><span>🌱</span> AgroCiclo</h2>
-            <p class="subLogo">GESTÃO RURAL</p>
+        <div class="logo">
+                <img src="../imagens/logo-broto.svg" alt="" width="32" height="32">
+                AgroCiclo
         </div>
+
 
        <nav class="sidebarMenu">
             <span class="menuCategoria">VISÃO GERAL</span>
@@ -55,8 +56,8 @@
         <div class="sidebarUser">
             <div class="userAvatar">L</div>
             <div class="userInfo">
-                <strong>Proprietário</strong>
-                <span>Fazenda Talismã</span>
+                <strong>Carregando sessão…</strong>
+                <span>Carregando propriedade…</span>
             </div>
         </div>
     </aside>
@@ -69,10 +70,10 @@
             </div>
             <div class="topActions">
                 <select class="selectFazenda">
-                    <option>Fazenda Talismã</option>
+                    <option>Carregando propriedade…</option>
                 </select>
-                <button class="btnIcon"><i data-lucide="bell"></i></button>
-                <button class="btnIcon"><i data-lucide="user"></i></button>
+                <a class="btnIcon" href="../relatorioAlerta/centralAlertas.html" aria-label="Central de alertas"><i data-lucide="bell"></i></a>
+                <a class="btnIcon" href="../acessoSeguranca/acessoSeguranca.html" aria-label="Acesso e segurança"><i data-lucide="user"></i></a>
             </div>
         </header>
 
@@ -97,7 +98,7 @@
                     </div>
                     <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Cadastrar Utilizador</h3>
                     <p class="cardSub" style="margin-bottom: 16px;">Contas vinculam-se a funcionário; perfis são Proprietário, Gerente ou Operador.</p>
-                    <a href="#" class="botaoC" style="text-align: center; text-decoration: none; font-size: 14px; padding: 10px; margin: 0;">Novo usuario</a>
+                    <a href="cadastrarUsuario.html" class="botaoC" style="text-align: center; text-decoration: none; font-size: 14px; padding: 10px; margin: 0;">Novo usuario</a>
                 </div>
 
                 <!-- PERMISSÕES DO USUARIO -->
@@ -108,7 +109,7 @@
                     </div>
                     <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Permissões por perfil</h3>
                     <p class="cardSub" style="margin-bottom: 16px;">Visão explicativa de permissões fixas por perfil de acesso.</p>
-                    <a href="#" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Ver permissões</a>
+                    <a href="permissoes.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Ver permissões</a>
                 </div>
 
                 <!-- DESATIVAR UTILIZADOR -->
@@ -119,7 +120,7 @@
                     </div>
                     <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Desativar Utilizador</h3>
                     <p class="cardSub" style="margin-bottom: 16px;">Preserva auditoria e impede desativar a última conta ativa de Proprietário.</p>
-                    <a href="#" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Desativar conta</a>
+                    <a href="destivaUsuario.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px;">Desativar conta</a>
                 </div>
 
                 <!-- ENCERRAR SESSÃO -->
@@ -130,15 +131,29 @@
                     </div>
                     <h3 style="margin: 12px 0 6px 0; font-size: 18px; color: #003822;">Encerrar Sessão</h3>
                     <p class="cardSub" style="margin-bottom: 16px;">Ao sair, as operações protegidas ficam temporariamente indisponíveis.</p>
-                    <a href="../login.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px; color: #c0392b;">Terminar sessão</a>
+                    <a href="encerrar.html" class="btnSecundario" style="display: block; text-align: center; text-decoration: none; font-size: 14px; padding: 10px; color: #c0392b;">Terminar sessão</a>
                 </div>
 
             </div>
+            <section class="agroPanel" id="painelEmail" hidden>
+                <h2>E-mail da minha conta</h2>
+                <p>Este endereço recebe os resumos de alertas solicitados por você.</p>
+                <form id="emailConta" method="post">
+                    <div class="agroFields">
+                        <label>E-mail<input type="email" name="email" autocomplete="email" required></label>
+                    </div>
+                    <div class="agroActions">
+                        <button class="agroBtn" type="submit" disabled>Salvar e-mail</button>
+                    </div>
+                </form>
+            </section>
         </main>
     </div>
 
     <script>
-        lucide.createIcons();
+        window.lucide?.createIcons();
     </script>
+    <script src="../js/agrociclo-api.js"></script>
+    <script src="../js/modulos-api.js"></script>
 </body>
 </html>

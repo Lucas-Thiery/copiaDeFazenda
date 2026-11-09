@@ -11,7 +11,7 @@ html, body {
     box-sizing: inherit;
 }
 
-/* ESTILOS DE CADASTRO e LOGIN */
+/* Cadastro e login */
 
 .divisao {
     display: grid;
@@ -26,6 +26,10 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    background-image: url("imagens/paisagem.svg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 140% auto;
 }
 
 .ladoEsquerdo .logo h2 {
@@ -37,7 +41,7 @@ html, body {
     gap: 10px;
 }
 
-.ladoEsquerdo .textoHero h1 {
+.ladoEsquerdo .textoIntro h1 {
     color: white;
     font-size: 40px;
     line-height: 1.2;
@@ -92,12 +96,6 @@ html, body {
     margin-bottom: 6px;
     color: #1a1a1a;
     font-weight: 700;
-}
-
-.cadastro .subtitulo {
-    font-size: 13px;
-    margin-bottom: 25px;
-    color: #888;
 }
 
 .cadastro p {
@@ -180,7 +178,7 @@ html, body {
     background-color: #00331e;
 }
 
-.cadastro label.entrar {
+.cadastro .entrar {
     display: block;
     text-align: center;
     font-weight: normal;
@@ -195,8 +193,7 @@ html, body {
     font-weight: bold;
 }
 
-
-/*ESTILOS do PAINEL */
+/* Painel e módulos */
 
 .principalBody {
     display: flex;
@@ -208,7 +205,7 @@ html, body {
     padding: 0;
 }
 
-/* SIDEBAR */
+/* Barra lateral */
 .sidebar {
     width: 260px;
     min-width: 260px;
@@ -224,10 +221,15 @@ html, body {
     box-sizing: border-box;
 }
 
+.sidebar .logo,
 .sidebarHeader h2 {
     color: white;
     font-size: 20px;
+    font-weight: bold;
     margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .subLogo {
@@ -314,7 +316,7 @@ html, body {
     font-size: 11px;
 }
 
-/* MAIN CONTENT & HEADER */
+/* Cabeçalho e conteúdo */
 .mainContent {
     flex: 1;
     display: flex;
@@ -412,7 +414,7 @@ html, body {
     cursor: pointer;
 }
 
-/* CARDS GRID */
+/* Cartões */
 .cardsGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -451,7 +453,7 @@ html, body {
     color: #c0392b;
 }
 
-/* SEÇÃO E GRÁFICO */
+/* Seções e gráfico do painel */
 .cardSecao {
     background-color: white;
     border-radius: 12px;
@@ -526,7 +528,7 @@ html, body {
     margin-bottom: 0;
 }
 
-
+/* Formulários dos módulos */
 
 .formCadastroPropriedade {
     display: flex;
@@ -552,6 +554,9 @@ html, body {
 }
 
 .linhaForm input[type="text"],
+.linhaForm input[type="number"],
+.linhaForm input[type="date"],
+.linhaForm textarea,
 .selectForm {
     width: 100%;
     padding: 10px 14px;
@@ -561,6 +566,14 @@ html, body {
     background-color: #fff;
     box-sizing: border-box;
     height: 40px;
+}
+
+.linhaForm textarea {
+    height: auto;
+    min-height: 72px;
+    font: inherit;
+    font-weight: normal;
+    resize: vertical;
 }
 
 .selectForm {
@@ -587,6 +600,361 @@ html, body {
     cursor: pointer;
 }
 
+.botoesAcao .botaoC {
+    width: auto;
+    padding: 10px 24px;
+    margin: 0;
+}
+
+.btnCancelar,
+.btnSecundario,
+.btnIcon {
+    text-decoration: none;
+}
+
 .btnCancelar:hover {
     background-color: #f1f1ef;
+}
+
+.cadastro .retornoFormulario,
+.retornoFormulario {
+    margin: 8px 0;
+    font-size: 13px;
+    color: #40594a;
+}
+
+.cadastro .retornoFormulario:empty,
+.retornoFormulario:empty,
+.estadoPainel:empty,
+.alertasPainel:empty {
+    display: none;
+}
+
+/* Painel da fazenda */
+
+.btnIcon svg {
+    width: 17px;
+    height: 17px;
+}
+
+.topActions .selectFazenda {
+    min-width: 0;
+    max-width: min(43vw, 15rem);
+}
+
+.acoesPainel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.estadoPainel {
+    margin-bottom: 12px;
+}
+
+.alertasPainel {
+    margin: 0;
+    padding-left: 20px;
+    color: #333;
+    font-size: 14px;
+}
+
+.alertasPainel li + li {
+    margin-top: 8px;
+}
+
+/* Relatórios, alertas, acesso e segurança */
+
+.agroMod .topHeader {
+    flex-shrink: 0;
+}
+
+.agroMod .dashTitleSection {
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.agroMod .btnSecundario {
+    text-decoration: none;
+}
+
+.agroMod .tagVerde {
+    display: inline-block;
+}
+
+.agroMod .agroPanel {
+    background: #fff;
+    border: 1px solid #e1e8de;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 0 0 16px;
+    box-shadow: 0 3px 10px #1844220c;
+}
+
+.agroMod .agroPanel h2 {
+    margin: 0 0 14px;
+    font-size: 18px;
+    color: #163d2a;
+}
+
+.agroMod .agroPanel p {
+    line-height: 1.5;
+}
+
+.agroMod .agroFields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.agroMod .agroFields label {
+    display: grid;
+    gap: 6px;
+    align-content: start;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.agroMod .agroFields input,
+.agroMod .agroFields select {
+    min-width: 0;
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #c6d4ca;
+    border-radius: 6px;
+    background: #fafcf9;
+    color: #163d2a;
+    font: inherit;
+    font-weight: normal;
+}
+
+.agroMod .agroActions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.agroMod .agroBtn {
+    display: inline-block;
+    padding: 9px 14px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    background: #004729;
+    color: white;
+    font: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.agroMod .agroBtn:hover {
+    filter: brightness(.90);
+}
+
+.agroMod .agroSecondary {
+    background: #edf4ec;
+    color: #004729;
+    border-color: #d7e6d8;
+}
+
+.agroMod .agroDanger {
+    background: #a1312d;
+}
+
+.agroMod .agroBtn:disabled {
+    opacity: .55;
+    cursor: default;
+}
+
+.agroMod .agroTable {
+    overflow-x: auto;
+}
+
+.agroMod table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.agroMod th,
+.agroMod td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #e4eae1;
+}
+
+.agroMod th {
+    color: #173e2b;
+    background: #edf4ec;
+}
+
+.agroMod .agroStatus {
+    font-weight: bold;
+    color: #185c39;
+}
+
+.agroMod .agroStatus:empty {
+    display: none;
+}
+
+.agroMod .agroStatus[data-error] {
+    color: #922c28;
+}
+
+.agroMod .agroConfirm {
+    background: #fff3f0;
+    border: 1px solid #eed3cd;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 14px 0 0;
+}
+
+.agroMod .agroConfirm legend {
+    color: #922c28;
+    font-weight: bold;
+}
+
+.agroMod .agroMetricGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 12px;
+}
+
+.agroMod .agroMetric {
+    padding: 12px;
+    background: #edf4ec;
+    border-radius: 7px;
+}
+
+.agroMod .agroMetric strong {
+    display: block;
+    margin-top: 6px;
+    font-size: 20px;
+    color: #004729;
+}
+
+.agroMod .agroChart {
+    display: grid;
+    gap: 8px;
+    margin: 0 0 16px;
+}
+
+.agroMod .agroChart > div {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    align-items: center;
+    gap: 8px;
+}
+
+.agroMod .agroChart meter {
+    width: 100%;
+    accent-color: #287347;
+}
+
+.agroMod [hidden] {
+    display: none !important;
+}
+
+/* Telas menores */
+
+@media (max-width: 780px) {
+    .agroMod.principalBody {
+        display: block;
+        width: 100%;
+    }
+
+    .agroMod .sidebar {
+        width: auto;
+        min-width: 0;
+        height: auto;
+        position: static;
+        padding: 12px 16px;
+    }
+
+    .agroMod .sidebarMenu {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .agroMod .sidebarMenu a {
+        white-space: nowrap;
+    }
+
+    .agroMod .sidebarUser,
+    .agroMod .menuCategoria,
+    .agroMod .subLogo {
+        display: none;
+    }
+
+    .agroMod .mainContent {
+        height: auto;
+    }
+
+    .agroMod .topHeader {
+        padding: 0 16px;
+    }
+
+    .agroMod .dashboardContainer {
+        padding: 16px;
+    }
+
+    .agroMod .agroFields {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 960px) {
+    .painelFazenda .cardsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .agroMod .topHeader {
+        height: auto;
+        padding: 12px 16px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .linhaForm {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .painelFazenda .barraWrapper span {
+        font-size: 10px;
+    }
+}
+
+/* Impressão de relatórios */
+
+@media print {
+    .agroMod.principalBody,
+    .agroMod .mainContent {
+        display: block;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        background: white;
+    }
+
+    .agroMod .sidebar,
+    .agroMod .topHeader,
+    .agroMod .agroNoPrint,
+    .agroMod .agroActions,
+    .agroMod .dashTitleSection a {
+        display: none;
+    }
+
+    .agroMod .dashboardContainer {
+        padding: 0;
+    }
+
+    .agroMod .agroPanel {
+        box-shadow: none;
+    }
 }

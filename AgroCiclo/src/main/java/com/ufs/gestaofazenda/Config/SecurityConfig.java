@@ -1,5 +1,6 @@
 package com.ufs.gestaofazenda.Config;
 
+import com.ufs.gestaofazenda.Entity.Usuario;
 import com.ufs.gestaofazenda.Repository.UsuarioRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -34,7 +35,7 @@ public class SecurityConfig {
             var usuario =
                     usuarioRepository
                             .findByLoginIgnoreCase(login)
-                            .filter(u -> u.isAtivo() && u.getFuncionario().isAtivo())
+                            .filter(Usuario::podeAutenticar)
                             .orElseThrow(
                                     () -> new UsernameNotFoundException("Credenciais inválidas."));
             return User.withUsername(usuario.getLogin())
@@ -50,6 +51,9 @@ public class SecurityConfig {
                         a ->
                                 a.requestMatchers(
                                                 "/",
+                                                "/index.html",
+                                                "/api/csrf",
+                                                "/api/cadastro/proprietario",
                                                 "/fazendaweb/login.html",
                                                 "/fazendaweb/setup.html",
                                                 "/fazendaweb/style.css",

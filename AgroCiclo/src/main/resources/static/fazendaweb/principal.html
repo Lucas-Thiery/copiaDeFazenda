@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="principalBody">
+<body class="principalBody agroMod painelFazenda">
 
     <!-- BARRA LATERAL -->
     <aside class="sidebar">
-        <div class="sidebarHeader">
-            <h2><span>🌱</span> AgroCiclo</h2>
-            <p class="subLogo">GESTÃO RURAL</p>
+        <div class="logo">
+                <img src="imagens/logo-broto.svg" alt="" width="32" height="32">
+                AgroCiclo
         </div>
 
         <nav class="sidebarMenu">
@@ -54,15 +54,14 @@
         <div class="sidebarUser">
             <div class="userAvatar">L</div>
             <div class="userInfo">
-                <strong>Proprietário</strong>
-                <span>Fazenda Talismã</span>
+                <strong>Carregando sessão…</strong>
+                <span>Carregando fazenda…</span>
             </div>
         </div>
     </aside>
 
     <!-- CONTEÚDO PRINCIPAL -->
     <div class="mainContent">
-<a href="operacoes-implementadas.html" style="display:block;padding:12px;background:#e3f2e8;text-align:center">Operações disponíveis: safra, pesagem e estoque →</a>
         
         
         <header class="topHeader">
@@ -71,10 +70,10 @@
             </div>
             <div class="topActions">
                 <select class="selectFazenda">
-                    <option>Fazenda Talismã</option>
+                    <option>Carregando fazenda…</option>
                 </select>
-                <button class="btnIcon"><i data-lucide="bell"></i></button>
-                <button class="btnIcon"><i data-lucide="user"></i></button>
+                <a class="btnIcon" data-alertas hidden href="relatorioAlerta/centralAlertas.html" aria-label="Central de alertas"><i data-lucide="bell"></i></a>
+                <a class="btnIcon" href="acessoSeguranca/acessoSeguranca.html" aria-label="Acesso e segurança"><i data-lucide="user"></i></a>
             </div>
         </header>
 
@@ -82,11 +81,13 @@
         <main class="dashboardContainer">
             <div class="dashTitleSection">
                 <div>
-                    <span class="tagVerde">VISÃO GERAL · CONCEITO DE INTERFACE</span>
+                    <span class="tagVerde">VISÃO GERAL</span>
                     <h1>Painel da fazenda</h1>
                     <p>Resumo operacional da propriedade e atalhos para os principais módulos.</p>
                 </div>
             </div>
+
+            <p id="estadoPainel" class="cardSub estadoPainel" role="status">Carregando indicadores…</p>
 
             <!-- CARDS DE MÉTRICAS -->
             <div class="cardsGrid">
@@ -95,8 +96,8 @@
                         <span>Talhões cadastrados</span>
                         <i data-lucide="tree-pine"></i>
                     </div>
-                    <h2>08</h2>
-                    <p class="cardSub">3 safras em andamento</p>
+                    <h2 id="totalTalhoes">—</h2>
+                    <p class="cardSub" id="totalSafras"></p>
                 </div>
 
                 <div class="cardMetrica">
@@ -104,8 +105,8 @@
                         <span>Animais cadastrados</span>
                         <i data-lucide="bird"></i>
                     </div>
-                    <h2>124</h2>
-                    <p class="cardSub">4 lotes ativos</p>
+                    <h2 id="totalAnimais">—</h2>
+                    <p class="cardSub" id="totalLotes"></p>
                 </div>
 
                 <div class="cardMetrica">
@@ -113,8 +114,8 @@
                         <span>Itens em estoque</span>
                         <i data-lucide="layers"></i>
                     </div>
-                    <h2>46</h2>
-                    <p class="cardSub destaqueAlerta">5 abaixo do mínimo</p>
+                    <h2 id="totalEstoque">—</h2>
+                    <p class="cardSub" id="totalEstoqueBaixo"></p>
                 </div>
 
                 <div class="cardMetrica">
@@ -122,45 +123,41 @@
                         <span>Tarefas pendentes</span>
                         <i data-lucide="check-square"></i>
                     </div>
-                    <h2>12</h2>
-                    <p class="cardSub">4 para esta semana</p>
+                    <h2 id="totalTarefas">—</h2>
+                    <p class="cardSub" id="tarefasSemana"></p>
                 </div>
             </div>
 
             <!-- GRÁFICO DA ATIVIDADE -->
-            <section class="cardSecao">
+            <section class="cardSecao" id="secaoAtividade" hidden>
                 <div class="cardSecaoHeader">
                     <h3>Visão da atividade rural</h3>
-                    <span class="badgeIlustrativo">Dados ilustrativos</span>
+                    <span class="badgeIlustrativo">Últimos 7 meses</span>
                 </div>
 
-                <div class="graficoContainer">
-                    <div class="colunaBarras">
-                        <div class="barraWrapper"><div class="barra" style="height: 40%;"></div><span>Abr</span></div>
-                        <div class="barraWrapper"><div class="barra" style="height: 65%;"></div><span>Mai</span></div>
-                        <div class="barraWrapper"><div class="barra" style="height: 50%;"></div><span>Jun</span></div>
-                        <div class="barraWrapper"><div class="barra" style="height: 85%;"></div><span>Jul</span></div>
-                        <div class="barraWrapper"><div class="barra" style="height: 70%;"></div><span>Ago</span></div>
-                        <div class="barraWrapper"><div class="barra" style="height: 95%;"></div><span>Set</span></div>
-                        <div class="barraWrapper"><div class="barra" style="height: 80%;"></div><span>Out</span></div>
-                    </div>
+                <div class="graficoContainer" id="graficoAtividade" hidden>
+                    <div class="colunaBarras" id="barrasAtividade"></div>
                 </div>
-                <p class="legendaGrafico">Comparativo ilustrativo de atividades registradas nos últimos meses.</p>
+                <p class="legendaGrafico" id="legendaAtividade">Registros de produção agrícola e pecuária por mês.</p>
             </section>
 
             <!-- ALERTAS -->
-            <section class="cardSecao">
+            <section class="cardSecao" id="secaoAlertas" hidden>
                 <div class="cardSecaoHeader">
                     <h3>Alertas recentes</h3>
-                    <button class="btnSecundario">Ver todos</button>
+                    <a class="btnSecundario" href="relatorioAlerta/centralAlertas.html">Ver todos</a>
                 </div>
+                <p id="estadoAlertas" class="cardSub" role="status">Carregando alertas…</p>
+                <ul id="alertasPainel" class="alertasPainel" hidden></ul>
             </section>
         </main>
 
     </div>
 
     <script>
-        lucide.createIcons();
+        window.lucide?.createIcons();
     </script>
+    <script src="js/agrociclo-api.js"></script>
+    <script src="js/modulos-api.js"></script>
 </body>
 </html>

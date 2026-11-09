@@ -1,5 +1,19 @@
 /* Integração HTTP do AgroCiclo. Requisições mutáveis usam o token CSRF do Spring Security. */
 (function () {
+  const chaveFazenda = 'agrociclo.fazenda';
+
+  function fazendaSelecionada() {
+    try { return sessionStorage.getItem(chaveFazenda); }
+    catch { return null; }
+  }
+
+  function selecionarFazenda(id) {
+    try {
+      if (id === null) sessionStorage.removeItem(chaveFazenda);
+      else sessionStorage.setItem(chaveFazenda, String(id));
+    } catch { /* A API usa a propriedade padrão quando o armazenamento está indisponível. */ }
+  }
+
   function cookie(name) {
     const row = document.cookie.split('; ').find((item) => item.startsWith(name + '='));
     return row ? decodeURIComponent(row.split('=').slice(1).join('=')) : '';
@@ -7,6 +21,8 @@
   async function api(url, options = {}) {
     const headers = new Headers(options.headers || {});
     headers.set('Accept', 'application/json');
+    const fazenda = fazendaSelecionada();
+    if (fazenda && !headers.has('X-Fazenda-Id')) headers.set('X-Fazenda-Id', fazenda);
     if (options.body) headers.set('Content-Type', 'application/json');
     const mutation = ['POST','PUT','PATCH','DELETE'].includes((options.method || 'GET').toUpperCase());
     if (mutation && url !== '/api/setup/inicial' && !headers.has('Idempotency-Key')) {
@@ -28,5 +44,38 @@
     if (!node) { node = document.createElement('p'); node.dataset.feedback = ''; node.setAttribute('role', 'status'); form.prepend(node); }
     node.textContent = message; node.style.color = error ? '#a12626' : '#24713b';
   }
-  window.AgroCicloAPI = { api, feedback };
+  async function carregarFazendas() {
+    const select = document.querySelector('select.selectFazenda');
+    if (!select) return;
+    select.setAttribute('aria-label', 'Fazenda ativa');
+    select.disabled = true;
+    try {
+      const sessao = await api('/api/sessao');
+      if (sessao.primeiraFazendaPendente) {
+        select.replaceChildren(new Option('Cadastre sua primeira fazenda', ''));
+        return;
+      }
+      const fazendas = (await api('/api/fazendas')).filter(fazenda => fazenda.ativa);
+      select.replaceChildren(...fazendas.map(fazenda => new Option(fazenda.nome, fazenda.fazendaId)));
+      select.value = String(sessao.codFazenda);
+      select.disabled = fazendas.length < 2;
+      select.addEventListener('change', () => {
+        selecionarFazenda(select.value);
+        location.reload();
+      });
+    } catch (error) {
+      select.replaceChildren(new Option('Não foi possível carregar fazendas', ''));
+      if (fazendaSelecionada()) {
+        // A seleção pode pertencer a uma sessão anterior aberta em outra aba.
+        const fazendas = await api('/api/fazendas').catch(() => []);
+        if (fazendas.length && !fazendas.some(f => f.ativa && String(f.fazendaId) === fazendaSelecionada())) {
+          selecionarFazenda(null);
+          location.reload();
+        }
+      }
+    }
+  }
+
+  window.AgroCicloAPI = { api, feedback, fazendaSelecionada, selecionarFazenda };
+  document.addEventListener('DOMContentLoaded', carregarFazendas);
 })();

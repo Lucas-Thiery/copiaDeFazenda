@@ -11,9 +11,9 @@
 
     <!-- BARRA LATERAL -->
     <aside class="sidebar">
-        <div class="sidebarHeader">
-            <h2><span>🌱</span> AgroCiclo</h2>
-            <p class="subLogo">GESTÃO RURAL</p>
+        <div class="logo">
+                <img src="../imagens/logo-broto.svg" alt="" width="32" height="32">
+                AgroCiclo
         </div>
        <nav class="sidebarMenu">
             <span class="menuCategoria">VISÃO GERAL</span>
@@ -87,9 +87,29 @@
                     <h3>Informações do registo</h3>
                 </div>
 
-                <form class="formCadastroPropriedade" data-agrociclo-form="/api/talhoes">
-                    <label>Identificação<input name="identificacao" required maxlength="80" placeholder="Ex.: TAL-001"></label><label>Área (hectares)<input name="areaHectares" type="number" min="0.0001" step="0.0001" required></label><label>Localização<input name="localizacao" maxlength="240" placeholder="Referência local"></label><label>Descrição dos limites físicos<textarea name="descricaoLimites" maxlength="1000" rows="3" placeholder="Descreva os limites e referências físicas"></textarea></label>
-                    <div class="botoesAcao"><button type="button" class="btnCancelar" onclick="history.back()">Cancelar</button><button type="submit" class="botaoC" style="margin:0;width:auto;padding:10px 24px">Salvar</button></div>
+                <form method="post" class="formCadastroPropriedade" data-agrociclo-form="/api/talhoes">
+                    <div class="linhaForm">
+                        <label>Identificação
+                            <input type="text" name="identificacao" required maxlength="80" placeholder="Ex.: TAL-001">
+                        </label>
+                        <label>Área (hectares)
+                            <input name="areaHectares" type="number" min="0.0001" step="0.0001" required>
+                        </label>
+                    </div>
+                    <div class="linhaForm">
+                        <label>Localização
+                            <input type="text" name="localizacao" maxlength="240" placeholder="Referência local">
+                        </label>
+                    </div>
+                    <div class="linhaForm">
+                        <label>Descrição dos limites físicos
+                            <textarea name="descricaoLimites" maxlength="1000" rows="3" placeholder="Descreva os limites e referências físicas"></textarea>
+                        </label>
+                    </div>
+                    <div class="botoesAcao">
+                        <button type="button" class="btnCancelar" onclick="history.back()">Cancelar</button>
+                        <button type="submit" class="botaoC" style="margin:0;width:auto;padding:10px 24px">Salvar</button>
+                    </div>
                 </form>
             </section>
         </main>

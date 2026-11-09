@@ -1,1 +1,60 @@
-<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/fazendaweb/login.html"><title>AgroCiclo</title><a href="/fazendaweb/login.html">Abrir AgroCiclo</a></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fazendaweb/style.css">
+    <title> 🌱 AgroCiclo </title>
+</head>
+
+<body>
+    <div class="divisao">
+        <div class="ladoEsquerdo">
+            <div class="logo">
+                <h2><img src="fazendaweb/imagens/logo-broto.svg" alt="" width="32" height="32"> AgroCiclo</h2>
+            </div>
+
+            <div class="textoIntro">
+                <h1>Sua fazenda e sua equipe sob seu controle.</h1>
+            </div>
+        </div>
+
+        <div class="ladoDireito">
+
+            <div class="cadastro">
+                <h1>Cadastro do proprietário</h1>
+                <p class="substituto">Primeiro acesso ao AgroCiclo.</p>
+                <form id="cadastroProprietario" method="post" action="/api/cadastro/proprietario">
+                    <h3>Seus dados</h3>
+                    <label>Nome completo
+                        <input name="nomeCompleto" type="text" autocomplete="name" required maxlength="140" placeholder="Digite o seu nome">
+                    </label>
+                    <label>E-mail
+                        <input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="nome@exemplo.com">
+                    </label>
+                    <h3>Acesso</h3>
+                    <div class="linhaSenha">
+                        <label>Senha
+                            <input name="senha" type="password" required minlength="10" maxlength="72" autocomplete="new-password" placeholder="Crie uma senha">
+                        </label>
+                        <label>Confirmar senha
+                            <input name="confirmacao" type="password" required minlength="10" maxlength="72" autocomplete="new-password" placeholder="Confirme a sua senha">
+                        </label>
+                    </div>
+                    <p class="dicaSenha">Use pelo menos 10 caracteres.</p>
+                    <div class="termos">
+                        <input type="checkbox" id="aceitoTermos" name="aceitaTermos" required>
+                        <label for="aceitoTermos">Li e aceito os termos de uso e a política de privacidade.</label>
+                    </div>
+                    <p id="retornoCadastro" class="retornoFormulario" role="status"></p>
+                    <button class="botaoC" type="submit" disabled>Cadastrar</button>
+                </form>
+                <p class="entrar">Já tem conta? <a href="/fazendaweb/login.html">Entrar</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="/fazendaweb/js/agrociclo-api.js"></script>
+    <script src="/fazendaweb/js/cadastro-proprietario.js"></script>
+</body>
+</html>

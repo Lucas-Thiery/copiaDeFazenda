@@ -12,7 +12,7 @@
     <div class="divisao">
         <div class="ladoEsquerdo">
             <div class="logo">
-                <h2><span>🌱</span>AgroCiclo</h2>
+                <h2><img src="imagens/logo-broto.svg" alt="" width="32" height="32"> AgroCiclo</h2>
             </div>
 
             <div class="textoIntro">
@@ -23,13 +23,13 @@
         <div class="ladoDireito">
 
             <div class="cadastro">
-                <div id="mensagemLogin" role="alert" aria-live="polite"></div>
                 <h1>Entrar no AgroCiclo</h1>
                 <p class="substituto">Autenticação dos perfis existentes.</p>
+                <div id="mensagemLogin" class="retornoFormulario" role="alert"></div>
 
                 <form action="/api/auth/login" method="post">
-                    <label>Login
-                        <input type="text" name="login" autocomplete="username" placeholder="Seu login" required>
+                    <label>E-mail ou login
+                        <input type="text" name="login" autocomplete="username" placeholder="Seu e-mail ou login" required>
                     </label>
                     <div class="linhaSenha">
                         <label>Senha
@@ -38,11 +38,18 @@
                     </div>
                     <button type="submit" class="botaoC">Entrar</button>
                 </form>
-                <p class="entrar">Primeiro acesso? <a href="setup.html">Configurar a primeira propriedade</a> (requer token de implantação).</p>
+                <p class="entrar">Ainda não tem conta? <a href="/index.html">Criar conta</a></p>
             </div>
         </div>
     </div>
-<script>if(new URLSearchParams(location.search).has("erro")){document.getElementById("mensagemLogin").textContent="Login ou senha inválidos, ou conta desativada.";}</script>
+<script>
+    try { sessionStorage.removeItem('agrociclo.fazenda'); } catch {}
+    const parametros = new URLSearchParams(location.search);
+    const mensagem = document.getElementById('mensagemLogin');
+    if (parametros.has('erro')) mensagem.textContent = 'Login ou senha inválidos, ou conta desativada.';
+    if (parametros.has('logout')) mensagem.textContent = 'Sessão encerrada.';
+    if (parametros.has('cadastro')) mensagem.textContent = 'Conta criada. Entre com seu e-mail para cadastrar sua fazenda.';
+</script>
 </body>
 
 </html>

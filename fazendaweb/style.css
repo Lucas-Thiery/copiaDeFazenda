@@ -11,7 +11,7 @@ html, body {
     box-sizing: inherit;
 }
 
-/* ESTILOS DE CADASTRO e LOGIN */
+/* Cadastro e login */
 
 .divisao {
     display: grid;
@@ -30,7 +30,6 @@ html, body {
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 140% auto;
-
 }
 
 .ladoEsquerdo .logo h2 {
@@ -97,12 +96,6 @@ html, body {
     margin-bottom: 6px;
     color: #1a1a1a;
     font-weight: 700;
-}
-
-.cadastro .subtitulo {
-    font-size: 13px;
-    margin-bottom: 25px;
-    color: #888;
 }
 
 .cadastro p {
@@ -200,8 +193,7 @@ html, body {
     font-weight: bold;
 }
 
-
-/*ESTILOS do PAINEL */
+/* Painel e módulos */
 
 .principalBody {
     display: flex;
@@ -213,7 +205,7 @@ html, body {
     padding: 0;
 }
 
-/* SIDEBAR */
+/* Barra lateral */
 .sidebar {
     width: 260px;
     min-width: 260px;
@@ -229,9 +221,11 @@ html, body {
     box-sizing: border-box;
 }
 
+.sidebar .logo,
 .sidebarHeader h2 {
     color: white;
     font-size: 20px;
+    font-weight: bold;
     margin: 0;
     display: flex;
     align-items: center;
@@ -322,7 +316,7 @@ html, body {
     font-size: 11px;
 }
 
-/* MAIN CONTENT & HEADER */
+/* Cabeçalho e conteúdo */
 .mainContent {
     flex: 1;
     display: flex;
@@ -420,7 +414,7 @@ html, body {
     cursor: pointer;
 }
 
-/* CARDS GRID */
+/* Cartões */
 .cardsGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -459,7 +453,7 @@ html, body {
     color: #c0392b;
 }
 
-/* SEÇÃO E GRÁFICO */
+/* Seções e gráfico do painel */
 .cardSecao {
     background-color: white;
     border-radius: 12px;
@@ -534,7 +528,7 @@ html, body {
     margin-bottom: 0;
 }
 
-
+/* Formulários dos módulos */
 
 .formCadastroPropriedade {
     display: flex;
@@ -599,21 +593,24 @@ html, body {
     background-color: #f1f1ef;
 }
 
-.agroMod .sidebarHeader h2 {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+/* Relatórios, alertas, acesso e segurança */
+
+.agroMod .topHeader {
+    flex-shrink: 0;
 }
 
-.agroMod .topHeader { flex-shrink: 0; }
-.agroMod .dashTitleSection { flex-wrap: wrap; gap: 12px; }
-.agroMod .btnSecundario { text-decoration: none; }
-.agroMod .tagVerde { display: inline-block; }
-.agroMod .cardsGrid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
-.agroMod .cardAcao { display: flex; flex-direction: column; gap: 12px; }
-.agroMod .cardAcao h2 { font-size: 18px; margin: 0; }
-.agroMod .cardAcao p { margin: 0; }
-.agroMod .cardAcao .agroBtn { align-self: flex-start; margin-top: auto; }
+.agroMod .dashTitleSection {
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.agroMod .btnSecundario {
+    text-decoration: none;
+}
+
+.agroMod .tagVerde {
+    display: inline-block;
+}
 
 .agroMod .agroPanel {
     background: #fff;
@@ -624,11 +621,32 @@ html, body {
     box-shadow: 0 3px 10px #1844220c;
 }
 
-.agroMod .agroPanel h2 { margin: 0 0 14px; font-size: 18px; color: #163d2a; }
-.agroMod .agroPanel p { line-height: 1.5; }
-.agroMod .agroFields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-.agroMod .agroFields label { display: grid; gap: 6px; align-content: start; font-size: 14px; font-weight: bold; }
-.agroMod .agroFields input, .agroMod .agroFields select {
+.agroMod .agroPanel h2 {
+    margin: 0 0 14px;
+    font-size: 18px;
+    color: #163d2a;
+}
+
+.agroMod .agroPanel p {
+    line-height: 1.5;
+}
+
+.agroMod .agroFields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.agroMod .agroFields label {
+    display: grid;
+    gap: 6px;
+    align-content: start;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.agroMod .agroFields input,
+.agroMod .agroFields select {
     min-width: 0;
     width: 100%;
     padding: 9px 10px;
@@ -640,7 +658,14 @@ html, body {
     font-weight: normal;
 }
 
-.agroMod .agroActions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 16px; }
+.agroMod .agroActions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+}
+
 .agroMod .agroBtn {
     display: inline-block;
     padding: 9px 14px;
@@ -655,42 +680,188 @@ html, body {
     cursor: pointer;
 }
 
-.agroMod .agroBtn:hover { filter: brightness(.90); }
-.agroMod .agroSecondary { background: #edf4ec; color: #004729; border-color: #d7e6d8; }
-.agroMod .agroDanger { background: #a1312d; }
-.agroMod .agroBtn:disabled { opacity: .55; cursor: default; }
-.agroMod .agroTable { overflow-x: auto; }
-.agroMod table { width: 100%; border-collapse: collapse; font-size: 14px; }
-.agroMod th, .agroMod td { text-align: left; padding: 10px; border-bottom: 1px solid #e4eae1; }
-.agroMod th { color: #173e2b; background: #edf4ec; }
-.agroMod .agroStatus { font-weight: bold; color: #185c39; }
-.agroMod .agroStatus:empty { display: none; }
-.agroMod .agroStatus[data-error] { color: #922c28; }
-.agroMod .agroConfirm { background: #fff3f0; border: 1px solid #eed3cd; border-radius: 8px; padding: 12px; margin: 14px 0 0; }
-.agroMod .agroConfirm legend { color: #922c28; font-weight: bold; }
-.agroMod .agroMetricGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); gap: 12px; }
-.agroMod .agroMetric { padding: 12px; background: #edf4ec; border-radius: 7px; }
-.agroMod .agroMetric strong { display: block; margin-top: 6px; font-size: 20px; color: #004729; }
-.agroMod .agroChart { display: grid; gap: 8px; margin: 0 0 16px; }
-.agroMod .agroChart > div { display: grid; grid-template-columns: 100px 1fr; align-items: center; gap: 8px; }
-.agroMod .agroChart meter { width: 100%; accent-color: #287347; }
+.agroMod .agroBtn:hover {
+    filter: brightness(.90);
+}
+
+.agroMod .agroSecondary {
+    background: #edf4ec;
+    color: #004729;
+    border-color: #d7e6d8;
+}
+
+.agroMod .agroDanger {
+    background: #a1312d;
+}
+
+.agroMod .agroBtn:disabled {
+    opacity: .55;
+    cursor: default;
+}
+
+.agroMod .agroTable {
+    overflow-x: auto;
+}
+
+.agroMod table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.agroMod th,
+.agroMod td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #e4eae1;
+}
+
+.agroMod th {
+    color: #173e2b;
+    background: #edf4ec;
+}
+
+.agroMod .agroStatus {
+    font-weight: bold;
+    color: #185c39;
+}
+
+.agroMod .agroStatus:empty {
+    display: none;
+}
+
+.agroMod .agroStatus[data-error] {
+    color: #922c28;
+}
+
+.agroMod .agroConfirm {
+    background: #fff3f0;
+    border: 1px solid #eed3cd;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 14px 0 0;
+}
+
+.agroMod .agroConfirm legend {
+    color: #922c28;
+    font-weight: bold;
+}
+
+.agroMod .agroMetricGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 12px;
+}
+
+.agroMod .agroMetric {
+    padding: 12px;
+    background: #edf4ec;
+    border-radius: 7px;
+}
+
+.agroMod .agroMetric strong {
+    display: block;
+    margin-top: 6px;
+    font-size: 20px;
+    color: #004729;
+}
+
+.agroMod .agroChart {
+    display: grid;
+    gap: 8px;
+    margin: 0 0 16px;
+}
+
+.agroMod .agroChart > div {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    align-items: center;
+    gap: 8px;
+}
+
+.agroMod .agroChart meter {
+    width: 100%;
+    accent-color: #287347;
+}
+
+.agroMod [hidden] {
+    display: none !important;
+}
+
+/* Telas menores */
 
 @media (max-width: 780px) {
-    .agroMod.principalBody { display: block; width: 100%; }
-    .agroMod .sidebar { width: auto; min-width: 0; height: auto; position: static; padding: 12px 16px; }
-    .agroMod .sidebarMenu { flex-direction: row; overflow-x: auto; }
-    .agroMod .sidebarMenu a { white-space: nowrap; }
-    .agroMod .sidebarUser, .agroMod .menuCategoria, .agroMod .subLogo, .agroMod .topActions .selectFazenda { display: none; }
-    .agroMod .mainContent { height: auto; }
-    .agroMod .topHeader { padding: 0 16px; }
-    .agroMod .dashboardContainer { padding: 16px; }
-    .agroMod .agroFields { grid-template-columns: 1fr; }
+    .agroMod.principalBody {
+        display: block;
+        width: 100%;
+    }
+
+    .agroMod .sidebar {
+        width: auto;
+        min-width: 0;
+        height: auto;
+        position: static;
+        padding: 12px 16px;
+    }
+
+    .agroMod .sidebarMenu {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .agroMod .sidebarMenu a {
+        white-space: nowrap;
+    }
+
+    .agroMod .sidebarUser,
+    .agroMod .menuCategoria,
+    .agroMod .subLogo,
+    .agroMod .topActions .selectFazenda {
+        display: none;
+    }
+
+    .agroMod .mainContent {
+        height: auto;
+    }
+
+    .agroMod .topHeader {
+        padding: 0 16px;
+    }
+
+    .agroMod .dashboardContainer {
+        padding: 16px;
+    }
+
+    .agroMod .agroFields {
+        grid-template-columns: 1fr;
+    }
 }
 
+/* Impressão de relatórios */
+
 @media print {
-    .agroMod.principalBody, .agroMod .mainContent { display: block; width: auto; height: auto; overflow: visible; background: white; }
-    .agroMod .sidebar, .agroMod .topHeader, .agroMod , .agroMod .agroActions, .agroMod .dashTitleSection a { display: none; }
-    .agroMod .dashboardContainer { padding: 0; }
-    .agroMod .agroPanel { box-shadow: none; }
+    .agroMod.principalBody,
+    .agroMod .mainContent {
+        display: block;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        background: white;
+    }
+
+    .agroMod .sidebar,
+    .agroMod .topHeader,
+    .agroMod .agroNoPrint,
+    .agroMod .agroActions,
+    .agroMod .dashTitleSection a {
+        display: none;
+    }
+
+    .agroMod .dashboardContainer {
+        padding: 0;
+    }
+
+    .agroMod .agroPanel {
+        box-shadow: none;
+    }
 }
-.agroMod [hidden] { display: none !important; }

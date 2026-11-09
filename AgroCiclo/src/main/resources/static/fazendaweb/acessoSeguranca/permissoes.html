@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permissões por perfil | AgroCiclo</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+</head>
+<body class="principalBody agroMod">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2><img src="../imagens/logo-broto.svg" alt="" width="25" height="25"> AgroCiclo</h2>
+            <p class="subLogo">GESTÃO RURAL</p>
+        </div>
+
+       <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem active"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+
+
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Carregando sessão…</strong>
+                <span>Carregando propriedade…</span>
+            </div>
+        </div>
+    </aside>
+
+    <div class="mainContent">
+        
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / <a href="acessoSeguranca.html">Acesso e segurança</a> / <strong>Permissões por perfil</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda" aria-label="Propriedade de exemplo">
+                    <option>Carregando propriedade…</option>
+                </select>
+                <a class="btnIcon" href="../relatorioAlerta/centralAlertas.html" aria-label="Central de alertas"><i data-lucide="bell"></i></a>
+                <a class="btnIcon" href="../acessoSeguranca/acessoSeguranca.html" aria-label="Acesso e segurança"><i data-lucide="user"></i></a>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">ACESSO E SEGURANÇA</span>
+                    <h1>Permissões por perfil</h1>
+                    <p>Consulte a matriz de acesso dos casos de uso apresentados.</p>
+                </div>
+                <a class="btnSecundario" href="acessoSeguranca.html">Voltar ao módulo</a>
+            </div>
+            <section class="agroPanel">
+                <h2>Perfis e operações</h2>
+                <div class="agroTable">
+                    <table>
+                        <thead><tr><th scope="col">Caso de uso</th><th scope="col">Proprietário</th><th scope="col">Gerente de Campo</th><th scope="col">Operador</th></tr></thead>
+                        <tbody>
+                        <tr><th scope="row">UC09 · Realizar login</th><td>Sim</td><td>Sim</td><td>Sim</td></tr>
+                        <tr><th scope="row">UC21 · Controle de acesso por perfil</th><td>Sim</td><td>Sim</td><td>Sim</td></tr>
+                        <tr><th scope="row">UC42 · Encerrar sessão</th><td>Sim</td><td>Sim</td><td>Sim</td></tr>
+                        <tr><th scope="row">UC23 · Cadastrar usuário</th><td>Sim</td><td>Não</td><td>Não</td></tr>
+                        <tr><th scope="row">UC43 · Desativar usuário</th><td>Sim</td><td>Não</td><td>Não</td></tr>
+                        <tr><th scope="row">UC08 · Relatório de custos</th><td>Sim</td><td>Não</td><td>Não</td></tr>
+                        <tr><th scope="row">UC30 · Relatório de produtividade</th><td>Sim</td><td>Não</td><td>Não</td></tr>
+                        <tr><th scope="row">UC49 · Relatório gerencial</th><td>Sim</td><td>Não</td><td>Não</td></tr>
+                        <tr><th scope="row">UC39 · Central de alertas</th><td>Sim</td><td>Sim</td><td>Não</td></tr>
+                        <tr><th scope="row">UC46 · Configurar alertas</th><td>Sim</td><td>Sim</td><td>Não</td></tr>
+                        <tr><th scope="row">UC54 · Resumo por e-mail</th><td>Sim</td><td>Sim</td><td>Não</td></tr>
+                        <tr><th scope="row">UC37 · Fluxo de caixa</th><td>Sim</td><td>Não</td><td>Não</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="agroNote">A matriz é de consulta. O servidor verifica sessão e permissão em cada operação.</p>
+            </section>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => window.lucide?.createIcons());
+    </script>
+    <script src="../js/agrociclo-api.js"></script>
+    <script src="../js/modulos-api.js"></script>
+</body>
+</html>

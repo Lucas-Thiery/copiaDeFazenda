@@ -36,7 +36,8 @@ public class ReenvioAspect {
 
     @Around(
             "execution(public * com.ufs.gestaofazenda.Controller.*.*(..)) &&"
-                + " !within(com.ufs.gestaofazenda.Controller.SetupController)")
+                + " !within(com.ufs.gestaofazenda.Controller.SetupController)"
+                + " && !within(com.ufs.gestaofazenda.Controller.CadastroProprietarioController)")
     public Object gravacao(ProceedingJoinPoint chamada) throws Throwable {
         if (!Set.of("POST", "PUT", "PATCH", "DELETE").contains(request.getMethod()))
             return chamada.proceed();

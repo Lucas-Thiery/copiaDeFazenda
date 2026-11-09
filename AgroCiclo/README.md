@@ -16,7 +16,6 @@ docker compose up -d db
 $env:DB_URL = "jdbc:postgresql://localhost:5432/agrociclo"
 $env:DB_USER = "agrociclo"
 $env:DB_PASSWORD = "a-mesma-senha-definida-no-env"
-$env:AGRO_CICLO_SETUP_TOKEN = "um-token-local-longo-definido-por-voce"
 
 .\mvnw.cmd clean verify
 .\mvnw.cmd spring-boot:run
@@ -24,13 +23,13 @@ $env:AGRO_CICLO_SETUP_TOKEN = "um-token-local-longo-definido-por-voce"
 
 O `.env` é lido pelo Docker Compose; as variáveis do Java devem ser configuradas no terminal ou na IDE. No IntelliJ/VS Code, importe o `pom.xml`, selecione JDK 21 e habilite o processamento de anotações Lombok.
 
-Abra `http://localhost:8080/fazendaweb/setup.html` para disponibilizar a primeira conta de Proprietário. Informe o token configurado no ambiente. O setup funciona uma única vez e cria fazenda, cargo, funcionário e conta. Depois utilize `http://localhost:8080/fazendaweb/login.html`.
+Abra `http://localhost:8080/` e crie sua conta de proprietário com e-mail e senha. Depois de entrar, cadastre sua primeira fazenda. Para cadastrar outras, use **Cadastrar fazenda** no painel. O seletor no cabeçalho define qual fazenda está ativa na aba.
 
 ## Executar no Linux
 
 ```bash
 cp .env.example .env
-# Configure DB_URL, DB_USER, DB_PASSWORD e AGRO_CICLO_SETUP_TOKEN no ambiente.
+# Configure DB_URL, DB_USER e DB_PASSWORD no ambiente.
 docker compose up -d db
 ./mvnw clean verify
 ./mvnw spring-boot:run

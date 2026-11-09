@@ -25,7 +25,7 @@ public class ContextoUsuario {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Sessão inválida.");
         return usuarioRepository
                 .findByLoginIgnoreCase(auth.getName())
-                .filter(u -> u.isAtivo() && u.getFuncionario().isAtivo())
+                .filter(Usuario::podeAutenticar)
                 .orElseThrow(
                         () ->
                                 new ResponseStatusException(
@@ -36,6 +36,8 @@ public class ContextoUsuario {
     public Fazenda fazenda() {
         Usuario usuario = usuario();
         String valor = request.getHeader("X-Fazenda-Id");
+        if (usuario.primeiraFazendaPendente())
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Cadastre sua primeira fazenda.");
         Long codFazenda = usuario.getFuncionario().getFazenda().getFazendaId();
         if (valor != null) {
             try {

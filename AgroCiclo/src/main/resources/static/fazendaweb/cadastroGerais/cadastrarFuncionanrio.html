@@ -11,9 +11,9 @@
 
     <!-- BARRA LATERAL -->
     <aside class="sidebar">
-        <div class="sidebarHeader">
-            <h2><span>🌱</span> AgroCiclo</h2>
-            <p class="subLogo">GESTÃO RURAL</p>
+        <div class="logo">
+                <img src="../imagens/logo-broto.svg" alt="" width="32" height="32">
+                AgroCiclo
         </div>
          <nav class="sidebarMenu">
             <span class="menuCategoria">VISÃO GERAL</span>
@@ -87,9 +87,32 @@
                     <h3>Informações do registro</h3>
                 </div>
 
-                <form class="formCadastroPropriedade" data-agrociclo-form="/api/funcionarios">
-                    <label>Nome completo<input name="nome" required maxlength="140"></label><label>Cargo<select name="codCargo" data-options-from="/api/cargos" data-option-label="nome" required><option value="">Carregando cargos...</option></select></label><label>Equipe<input name="equipe" maxlength="100" placeholder="Equipe agrícola, pecuária..."></label><label>Horário de trabalho<input name="horarioTrabalho" required maxlength="100" placeholder="Ex.: 07:00 às 16:00"></label><label>Custo-hora individual (R$), opcional<input name="custoHoraIndividual" type="number" min="0" step="0.01" placeholder="Usar valor de referência do cargo"></label>
-                    <div class="botoesAcao"><button type="button" class="btnCancelar" onclick="history.back()">Cancelar</button><button type="submit" class="botaoC" style="margin:0;width:auto;padding:10px 24px">Salvar</button></div>
+                <form method="post" class="formCadastroPropriedade" data-agrociclo-form="/api/funcionarios">
+                    <div class="linhaForm">
+                        <label>Nome completo
+                            <input type="text" name="nome" required maxlength="140">
+                        </label>
+                        <label>Cargo
+                            <select class="selectForm" name="codCargo" data-options-from="/api/cargos" data-option-label="nome" required><option value="">Carregando cargos...</option></select>
+                        </label>
+                    </div>
+                    <div class="linhaForm">
+                        <label>Equipe
+                            <input type="text" name="equipe" maxlength="100" placeholder="Equipe agrícola, pecuária...">
+                        </label>
+                        <label>Horário de trabalho
+                            <input type="text" name="horarioTrabalho" required maxlength="100" placeholder="Ex.: 07:00 às 16:00">
+                        </label>
+                    </div>
+                    <div class="linhaForm">
+                        <label>Custo-hora individual (R$), opcional
+                            <input name="custoHoraIndividual" type="number" min="0" step="0.01" placeholder="Usar valor de referência do cargo">
+                        </label>
+                    </div>
+                    <div class="botoesAcao">
+                        <button type="button" class="btnCancelar" onclick="history.back()">Cancelar</button>
+                        <button type="submit" class="botaoC" style="margin:0;width:auto;padding:10px 24px">Salvar</button>
+                    </div>
                 </form>
             </section>
         </main>

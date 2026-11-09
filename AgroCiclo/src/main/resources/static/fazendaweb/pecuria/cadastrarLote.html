@@ -11,9 +11,9 @@
 
     <!-- BARRA LATERAL -->
     <aside class="sidebar">
-        <div class="sidebarHeader">
-            <h2><span>🌱</span> AgroCiclo</h2>
-            <p class="subLogo">GESTÃO RURAL</p>
+        <div class="logo">
+                <img src="../imagens/logo-broto.svg" alt="" width="32" height="32">
+                AgroCiclo
         </div>
         <nav class="sidebarMenu">
             <span class="menuCategoria">VISÃO GERAL</span>
@@ -87,9 +87,24 @@
                     <h3>Informações do lote</h3>
                 </div>
 
-                <form class="formCadastroPropriedade" data-agrociclo-form="/api/lotes">
-                    <label>Identificação do lote<input name="identificacao" required maxlength="80" placeholder="Ex.: LOTE-BOV-01"></label><label>Data de formação<input name="dtaFormacao" type="date" required></label><label>Pastagem inicial<select name="codPastagemAtual" data-options-from="/api/pastagens" data-option-label="identificacao" required><option value="">Carregando pastagens...</option></select></label>
-                    <div class="botoesAcao"><button type="button" class="btnCancelar" onclick="history.back()">Cancelar</button><button type="submit" class="botaoC" style="margin:0;width:auto;padding:10px 24px">Salvar</button></div>
+                <form method="post" class="formCadastroPropriedade" data-agrociclo-form="/api/lotes">
+                    <div class="linhaForm">
+                        <label>Identificação do lote
+                            <input type="text" name="identificacao" required maxlength="80" placeholder="Ex.: LOTE-BOV-01">
+                        </label>
+                        <label>Data de formação
+                            <input name="dtaFormacao" type="date" required>
+                        </label>
+                    </div>
+                    <div class="linhaForm">
+                        <label>Pastagem inicial
+                            <select class="selectForm" name="codPastagemAtual" data-options-from="/api/pastagens" data-option-label="identificacao" required><option value="">Carregando pastagens...</option></select>
+                        </label>
+                    </div>
+                    <div class="botoesAcao">
+                        <button type="button" class="btnCancelar" onclick="history.back()">Cancelar</button>
+                        <button type="submit" class="botaoC" style="margin:0;width:auto;padding:10px 24px">Salvar</button>
+                    </div>
                 </form>
             </section>
         </main>

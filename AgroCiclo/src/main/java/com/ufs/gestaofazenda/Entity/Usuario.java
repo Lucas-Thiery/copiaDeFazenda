@@ -18,13 +18,13 @@ public class Usuario {
     @Column(name = "id")
     public Long usuarioId;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "cod_funcionario", nullable = false, unique = true)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cod_funcionario", unique = true)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     public Funcionario funcionario;
 
-    @Column(name = "login", nullable = false, length = 2000)
+    @Column(name = "login", nullable = false, length = 254)
     public String login;
 
     @Column(name = "senha_hash", nullable = false, length = 2000)
@@ -51,4 +51,15 @@ public class Usuario {
 
     @Column(length = 254)
     public String email;
+
+    @Column(name = "nome_proprietario", length = 140)
+    private String nomeProprietario;
+
+    public boolean primeiraFazendaPendente() {
+        return perfil == Perfil.PROPRIETARIO && funcionario == null;
+    }
+
+    public boolean podeAutenticar() {
+        return ativo && (funcionario != null ? funcionario.isAtivo() : primeiraFazendaPendente());
+    }
 }

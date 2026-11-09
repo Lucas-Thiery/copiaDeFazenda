@@ -11,9 +11,9 @@
 
     <!-- BARRA LATERAL -->
     <aside class="sidebar">
-        <div class="sidebarHeader">
-            <h2><span>🌱</span> AgroCiclo</h2>
-            <p class="subLogo">GESTÃO RURAL</p>
+        <div class="logo">
+                <img src="../imagens/logo-broto.svg" alt="" width="32" height="32">
+                AgroCiclo
         </div>
         <nav class="sidebarMenu">
             <span class="menuCategoria">VISÃO GERAL</span>
@@ -87,9 +87,19 @@
                     <h3>Informações</h3>
                 </div>
 
-                <form class="formCadastroPropriedade" data-agrociclo-form="/api/pastagens">
-                    <label>Identificação da pastagem<input name="identificacao" required maxlength="80" placeholder="Ex.: Pasto Sede (Piquete A)"></label><label>Descrição física<textarea name="descricao" required maxlength="1000" rows="4" placeholder="Descreva localização, forragem, água, sombra e condições físicas conhecidas"></textarea></label>
-                    <div class="botoesAcao"><button type="button" class="btnCancelar" onclick="history.back()">Cancelar</button><button type="submit" class="botaoC" style="margin:0;width:auto;padding:10px 24px">Salvar</button></div>
+                <form method="post" class="formCadastroPropriedade" data-agrociclo-form="/api/pastagens">
+                    <div class="linhaForm">
+                        <label>Identificação da pastagem
+                            <input type="text" name="identificacao" required maxlength="80" placeholder="Ex.: Pasto Sede (Piquete A)">
+                        </label>
+                        <label>Descrição física
+                            <textarea name="descricao" required maxlength="1000" rows="4" placeholder="Descreva localização, forragem, água, sombra e condições físicas conhecidas"></textarea>
+                        </label>
+                    </div>
+                    <div class="botoesAcao">
+                        <button type="button" class="btnCancelar" onclick="history.back()">Cancelar</button>
+                        <button type="submit" class="botaoC" style="margin:0;width:auto;padding:10px 24px">Salvar</button>
+                    </div>
                 </form>
             </section>
         </main>

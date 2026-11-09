@@ -196,6 +196,63 @@ class FluxosIntegracaoTests {
     }
 
     @Test
+    void proprietarioCriaContaEAdministraVariasFazendasIsoladas() throws Exception {
+        String email = "proprietaria@example.com";
+        String senha = "Senha-Cadastro-123!";
+        String cadastro = mapper.writeValueAsString(
+                new CadastroProprietarioDTO("Ana da Silva", email, senha, true));
+        mvc.perform(post("/api/cadastro/proprietario").with(anonymous()).with(csrf())
+                        .contentType("application/json").content(cadastro))
+                .andExpect(status().isCreated());
+
+        var login = mvc.perform(post("/api/auth/login").with(anonymous())
+                        .param("login", email).param("senha", senha))
+                .andExpect(redirectedUrl("/fazendaweb/principal.html"))
+                .andReturn();
+        var sessao = (org.springframework.mock.web.MockHttpSession)
+                login.getRequest().getSession(false);
+        assertThat(sessao).isNotNull();
+
+        mvc.perform(get("/api/sessao").session(sessao))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.primeiraFazendaPendente").value(true));
+        mvc.perform(get("/fazendaweb/principal.html").session(sessao))
+                .andExpect(redirectedUrl("/fazendaweb/cadastroGerais/cadastrarPropriedade.html"));
+        mvc.perform(get("/api/usuarios").session(sessao))
+                .andExpect(status().isForbidden());
+
+        String primeira = mapper.writeValueAsString(Map.of(
+                "nome", "Fazenda da Serra", "areaHectares", 25,
+                "localizacao", "Sergipe", "responsavel", "Ana da Silva"));
+        var resultado = mvc.perform(post("/api/cadastro/primeira-fazenda")
+                        .session(sessao).with(csrf()).contentType("application/json").content(primeira))
+                .andExpect(status().isCreated()).andReturn();
+        long primeiraId = mapper.readTree(resultado.getResponse().getContentAsString())
+                .get("fazendaId").asLong();
+
+        String segunda = mapper.writeValueAsString(Map.of(
+                "nome", "Fazenda do Vale", "areaHectares", 35,
+                "localizacao", "Bahia", "responsavel", "Ana da Silva"));
+        var criada = mvc.perform(post("/api/fazendas").session(sessao).with(csrf())
+                        .header("Idempotency-Key", UUID.randomUUID().toString())
+                        .contentType("application/json").content(segunda))
+                .andExpect(status().isCreated()).andReturn();
+        long segundaId = mapper.readTree(criada.getResponse().getContentAsString())
+                .get("fazendaId").asLong();
+
+        mvc.perform(get("/api/sessao").session(sessao).header("X-Fazenda-Id", segundaId))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.codFazenda").value(segundaId))
+                .andExpect(jsonPath("$.primeiraFazendaPendente").value(false));
+        mvc.perform(get("/api/fazendas").session(sessao))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.length()").value(2));
+        mvc.perform(get("/api/sessao").session(sessao).header("X-Fazenda-Id", codFazenda))
+                .andExpect(status().isForbidden());
+        assertThat(usuarios.findByLoginIgnoreCase(email).orElseThrow().getFazendas())
+                .extracting(Fazenda::getFazendaId).containsExactlyInAnyOrder(primeiraId, segundaId);
+    }
+
+    @Test
     void idsLongDtoPlanoNaoExpoeSenhaNemEntidadeRelacionada() throws Exception {
         var r =
                 mvc.perform(get("/api/usuarios").with(user("dono").roles("PROPRIETARIO")))
