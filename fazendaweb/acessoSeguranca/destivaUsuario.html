@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desativar usuário | AgroCiclo</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../modulosAgroCiclo.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+</head>
+<body class="principalBody agroMod">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2><img src="../imagens/logo-broto.svg" alt="" width="25" height="25"> AgroCiclo</h2>
+            <p class="subLogo">GESTÃO RURAL</p>
+        </div>
+
+       <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem active"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+
+
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    <div class="mainContent">
+        
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / <a href="acessoSeguranca.html">Acesso e segurança</a> / <strong>Desativar usuário</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda" aria-label="Propriedade de exemplo">
+                    <option>Fazenda Talismã · exemplo</option>
+                </select>
+                <a class="btnIcon" href="../relatorioAlerta/centralAlertas.html" aria-label="Central de alertas">🔔</a>
+                <a class="btnIcon" href="../acessoSeguranca/acessoSeguranca.html" aria-label="Acesso e segurança">👤</a>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">ACESSO E SEGURANÇA</span>
+                    <h1>Desativar usuário</h1>
+                    <p>Confira a conta antes de desativar o acesso.</p>
+                </div>
+                <a class="btnSecundario" href="acessoSeguranca.html">Voltar ao módulo</a>
+            </div>
+            <section class="agroPanel">
+                <h2>Identificação da conta</h2>
+                <form id="desativarUsuario">
+                    <div class="agroFields">
+                        <label>Conta cadastrada<select name="conta" required><option value="">Selecione uma conta</option></select></label>
+                        <label>Perfil atual<input id="perfilAtual" readonly></label>
+                        <label>Situação<input id="situacaoConta" readonly></label>
+                    </div>
+                    <fieldset class="agroConfirm">
+                        <legend>Confirme a operação</legend>
+                        <p>O histórico é preservado. A última conta ativa de Proprietário deve permanecer ativa.</p>
+                        <label><input name="confirmacao" type="checkbox" required> Confirmei a conta selecionada.</label>
+                    </fieldset>
+                    <div class="agroActions">
+                        <button class="agroBtn agroDanger" type="submit">Simular desativação</button>
+                        <a class="agroBtn agroSecondary" href="acessoSeguranca.html">Cancelar</a>
+                    </div>
+                    <p class="agroStatus" role="status"></p>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => window.lucide?.createIcons());
+    </script>
+    <script src="../modulosAgroCiclo.js"></script>
+    <script src="seguranca.js"></script>
+</body>
+</html>

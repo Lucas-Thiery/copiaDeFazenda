@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de custos | AgroCiclo</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../modulosAgroCiclo.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+</head>
+<body class="principalBody agroMod">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2><img src="../imagens/logo-broto.svg" alt="" width="25" height="25"> AgroCiclo</h2>
+            <p class="subLogo">GESTÃO RURAL</p>
+        </div>
+
+        <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem  active"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+
+
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    
+    <div class="mainContent">
+        
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / <a href="relatorioAlerta.html">Relatórios e alertas</a> / <strong>Relatório de custos</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda" aria-label="Propriedade de exemplo">
+                    <option>Fazenda Talismã · exemplo</option>
+                </select>
+                <a class="btnIcon" href="../relatorioAlerta/centralAlertas.html" aria-label="Central de alertas">🔔</a>
+                <a class="btnIcon" href="../acessoSeguranca/acessoSeguranca.html" aria-label="Acesso e segurança">👤</a>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">RELATÓRIOS E ALERTAS</span>
+                    <h1>Relatório de custos</h1>
+                    <p>Totais por destino, categoria e critério de apuração.</p>
+                </div>
+                <a class="btnSecundario" href="relatorioAlerta.html">Voltar ao módulo</a>
+            </div>
+            <section class="agroPanel agroNoPrint">
+                <h2>Filtros da consulta</h2>
+                <form data-report="custos">
+                    <div class="agroFields">
+                        <label>Data inicial<input type="date" name="inicio" value="2026-10-01" required></label>
+                        <label>Data final<input type="date" name="fim" value="2026-10-31" required></label>
+                        <label>Destino<select name="escopo" ><option value="">Todos</option><option value="safra">Safras</option><option value="lote">Lotes</option><option value="geral">Despesas gerais</option></select></label>
+                        <label>Categoria<select name="categoria" ><option value="">Todas</option><option value="insumos">Insumos</option><option value="alimentacao">Alimentação</option><option value="tarefas">Tarefas</option><option value="servicos">Serviços</option></select></label>
+                    </div>
+                    <div class="agroActions">
+                        <button class="agroBtn" type="submit">Gerar relatório</button>
+                        <button class="agroBtn agroSecondary" type="reset">Limpar</button>
+                    </div>
+                    <p class="agroStatus" role="status"></p>
+                </form>
+            </section>
+            <section class="agroPanel" id="resultado" hidden>
+                <h2>Resultado demonstrativo</h2>
+                <p id="filtros"></p>
+                <div id="indicadores" class="agroMetricGrid"></div>
+                <div id="grafico" class="agroChart"></div>
+                <div id="tabela" class="agroTable"></div>
+                <div class="agroActions" id="exportacao">
+                    <button class="agroBtn agroSecondary" type="button" id="csv">Baixar CSV</button>
+                    <button class="agroBtn agroSecondary" type="button" id="pdf">Imprimir / Salvar PDF</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => window.lucide?.createIcons());
+    </script>
+    <script src="../modulosAgroCiclo.js"></script>
+    <script src="relatorios.js"></script>
+</body>
+</html>

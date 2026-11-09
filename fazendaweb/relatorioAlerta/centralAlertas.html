@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de alertas preventivos | AgroCiclo</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../modulosAgroCiclo.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+</head>
+<body class="principalBody agroMod">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+        <div class="sidebarHeader">
+            <h2><img src="../imagens/logo-broto.svg" alt="" width="25" height="25"> AgroCiclo</h2>
+            <p class="subLogo">GESTÃO RURAL</p>
+        </div>
+
+        <nav class="sidebarMenu">
+            <span class="menuCategoria">VISÃO GERAL</span>
+            <a href="../principal.html" class="menuItem"><i data-lucide="layout-dashboard"></i> Visão geral</a>
+
+            <span class="menuCategoria">CADASTROS GERAIS</span>
+            <a href="../cadastroGerais/cadastrarCargo.html" class="menuItem"><i data-lucide="folder"></i> Cadastros gerais</a>
+
+            <span class="menuCategoria">AGRICULTURA</span>
+            <a href="../agricultura/agricultura.html" class="menuItem"><i data-lucide="sprout"></i> Agricultura</a>
+
+            <span class="menuCategoria">PECUÁRIA</span>
+            <a href="../pecuria/pecuaria.html" class="menuItem"><i data-lucide="beef"></i> Pecuária</a>
+
+            <span class="menuCategoria">SANIDADE ANIMAL</span>
+            <a href="../sanidadeAnimal/sanidadeAnimal.html" class="menuItem"><i data-lucide="plus-square"></i> Sanidade animal</a>
+
+            <span class="menuCategoria">ESTOQUE E COMPRAS</span>
+            <a href="../estoqueCompra/estoqueCompras.html" class="menuItem"><i data-lucide="boxes"></i> Estoque e compras</a>
+
+            <span class="menuCategoria">PESSOAS E TAREFAS</span>
+            <a href="../pessoaTarefa/pessoaTarefa.html" class="menuItem"><i data-lucide="users"></i> Pessoas e tarefas</a>
+
+            <span class="menuCategoria">MAQUINÁRIO E FROTA</span>
+            <a href="../maquinarioFrota/maquinarioFrota.html" class="menuItem"><i data-lucide="truck"></i> Maquinário e frota</a>
+
+            <span class="menuCategoria">FINANCEIRO</span>
+            <a href="../financeiro/financeiro.html" class="menuItem"><i data-lucide="dollar-sign"></i> Financeiro</a>
+
+            <span class="menuCategoria">RELATÓRIOS E ALERTAS</span>
+            <a href="../relatorioAlerta/relatorioAlerta.html" class="menuItem  active"><i data-lucide="bar-chart-2"></i> Relatórios e alertas</a>
+
+            <span class="menuCategoria">ACESSO E SEGURANÇA</span>
+            <a href="../acessoSeguranca/acessoSeguranca.html" class="menuItem"><i data-lucide="shield"></i> Acesso e segurança</a>
+        </nav>
+
+
+        <div class="sidebarUser">
+            <div class="userAvatar">L</div>
+            <div class="userInfo">
+                <strong>Proprietário</strong>
+                <span>Fazenda Talismã</span>
+            </div>
+        </div>
+    </aside>
+
+    
+    <div class="mainContent">
+        
+        <header class="topHeader">
+            <div class="breadcrumb">
+                AgroCiclo / <a href="relatorioAlerta.html">Relatórios e alertas</a> / <strong>Central de alertas preventivos</strong>
+            </div>
+            <div class="topActions">
+                <select class="selectFazenda" aria-label="Propriedade de exemplo">
+                    <option>Fazenda Talismã · exemplo</option>
+                </select>
+                <a class="btnIcon" href="../relatorioAlerta/centralAlertas.html" aria-label="Central de alertas">🔔</a>
+                <a class="btnIcon" href="../acessoSeguranca/acessoSeguranca.html" aria-label="Acesso e segurança">👤</a>
+            </div>
+        </header>
+
+        <main class="dashboardContainer">
+            <div class="dashTitleSection">
+                <div>
+                    <span class="tagVerde">RELATÓRIOS E ALERTAS</span>
+                    <h1>Central de alertas preventivos</h1>
+                    <p>Consulte avisos por período, categoria e situação.</p>
+                </div>
+                <a class="btnSecundario" href="relatorioAlerta.html">Voltar ao módulo</a>
+            </div>
+            <section class="agroPanel">
+                <h2>Filtros da consulta</h2>
+                <p>Data de referência da demonstração: 20/10/2026.</p>
+                <form id="consultarAlertas">
+                    <div class="agroFields">
+                        <label>Data inicial<input type="date" name="inicio" value="2026-10-01" required></label>
+                        <label>Data final<input type="date" name="fim" value="2026-10-31" required></label>
+                        <label>Categoria<select name="categoria" ><option value="">Todas</option><option value="sanidade">Sanidade</option><option value="manutencao">Manutenção</option><option value="validade">Validade de insumos</option><option value="estoque">Estoque mínimo</option></select></label>
+                        <label>Situação<select name="situacao" ><option value="">Todas</option><option value="proximo">Próximo do limite</option><option value="atingido">Limite atingido</option><option value="abaixo">Abaixo do mínimo</option></select></label>
+                    </div>
+                    <div class="agroActions">
+                        <button class="agroBtn" type="submit">Consultar alertas</button>
+                        <button class="agroBtn agroSecondary" type="reset">Limpar</button> <a class="agroBtn agroSecondary" href="configurarAlertas.html">Configurar alertas</a>
+                    </div>
+                    <p class="agroStatus" role="status"></p>
+                </form>
+            </section>
+            <section class="agroPanel" id="resultadoAlertas" hidden>
+                <h2>Avisos da propriedade</h2>
+                <div class="agroTable" id="listaAlertas"></div>
+                <div class="agroActions"><a class="agroBtn" id="resumo" hidden>Revisar resumo por e-mail</a></div>
+            </section>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => window.lucide?.createIcons());
+    </script>
+    <script src="../modulosAgroCiclo.js"></script>
+    <script src="alertas.js"></script>
+</body>
+</html>
